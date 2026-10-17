@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+	<rect width="800" height="500" fill="#242943"/>
+	<!-- connected team members around a shared dataset -->
+	<g stroke="#ffffff" stroke-opacity="0.3" stroke-width="2">
+		<line x1="400" y1="250" x2="230" y2="140"/><line x1="400" y1="250" x2="570" y2="140"/>
+		<line x1="400" y1="250" x2="230" y2="360"/><line x1="400" y1="250" x2="570" y2="360"/>
+		<line x1="230" y1="140" x2="570" y2="140" stroke-dasharray="8 8"/><line x1="230" y1="360" x2="570" y2="360" stroke-dasharray="8 8"/>
+		<line x1="230" y1="140" x2="230" y2="360" stroke-dasharray="8 8"/><line x1="570" y1="140" x2="570" y2="360" stroke-dasharray="8 8"/>
+	</g>
+	<g fill="#ffffff" fill-opacity="0.45">
+		<circle cx="230" cy="140" r="26"/><circle cx="570" cy="140" r="26"/>
+		<circle cx="230" cy="360" r="26"/><circle cx="570" cy="360" r="26"/>
+	</g>
+	<g fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="3">
+		<ellipse cx="400" cy="232" rx="42" ry="12"/>
+		<path d="M358 232 v36 a42 12 0 0 0 84 0 v-36"/>
+	</g>
+</svg>

@@ -1,21 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
-	<defs>
-		<linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-			<stop offset="0" stop-color="#2a2f4f"/>
-			<stop offset="1" stop-color="#4b3a78"/>
-		</linearGradient>
-	</defs>
-	<rect width="800" height="500" fill="url(#g)"/>
-	<!-- scatter plot with a fitted line -->
-	<g stroke="#ffffff" stroke-opacity="0.25" stroke-width="2">
+	<rect width="800" height="500" fill="#242943"/>
+	<!-- scatter plot with a fitted regression line -->
+	<g stroke="#ffffff" stroke-opacity="0.3" stroke-width="2">
 		<line x1="120" y1="420" x2="700" y2="420"/>
 		<line x1="120" y1="420" x2="120" y2="80"/>
 	</g>
-	<g fill="#9bf1ff" fill-opacity="0.55">
+	<g fill="#ffffff" fill-opacity="0.45">
 		<circle cx="170" cy="380" r="7"/><circle cx="210" cy="350" r="7"/><circle cx="250" cy="365" r="7"/>
 		<circle cx="300" cy="310" r="7"/><circle cx="340" cy="320" r="7"/><circle cx="390" cy="270" r="7"/>
 		<circle cx="430" cy="285" r="7"/><circle cx="480" cy="230" r="7"/><circle cx="520" cy="245" r="7"/>
 		<circle cx="570" cy="190" r="7"/><circle cx="610" cy="200" r="7"/><circle cx="650" cy="150" r="7"/>
 	</g>
-	<line x1="140" y1="395" x2="690" y2="140" stroke="#ffffff" stroke-opacity="0.45" stroke-width="3"/>
+	<line x1="140" y1="395" x2="690" y2="140" stroke="#ffffff" stroke-opacity="0.55" stroke-width="3"/>
 </svg>

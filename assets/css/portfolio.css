@@ -1,95 +1,228 @@
 /*
-	Portfolio styles shared by every page.
-	Card styles carried over from the Intelligent Agents e-portfolio so both portfolios look alike.
+	Portfolio styles shared by every page, loaded after the Forty template's main.css.
+	One colour family (indigo on the template's navy) is used everywhere.
 */
+
+:root {
+	--navy: #242943;
+	--navy-light: #2a2f4a;
+	--accent: #4d5fae;
+	--accent-dark: #3f4f96;
+	--accent-light: #aab8f0;
+	--tint: #eef1fb;
+	--tint-border: #c9d1f3;
+	--ink: #1f2333;
+	--muted: #5f6476;
+	--header-height: 3.25em;
+}
+
+/* Template overrides: one accent colour instead of six tile colours and cyan highlights */
+
+a:hover {
+	color: var(--accent-light) !important;
+}
+
+#header .logo:hover strong {
+	background-color: var(--accent-light);
+}
+
+/* Checkerboard of two shades: tiles 1 and 4 light, tiles 2 and 3 dark */
+.tiles article:nth-child(4n + 1):before,
+.tiles article:nth-child(4n):before {
+	background-color: var(--accent);
+}
+
+.tiles article:nth-child(4n + 2):before,
+.tiles article:nth-child(4n + 3):before {
+	background-color: var(--accent-dark);
+}
+
+
+/* Header: page links visible on wide screens, Menu button on smaller ones */
+
+#header nav .nav-link {
+	display: none;
+}
+
+#header nav .nav-link.active {
+	box-shadow: inset 0 -2px 0 var(--accent-light);
+}
+
+@media screen and (min-width: 1281px) {
+	#header nav .nav-link {
+		display: block;
+	}
+
+	#header nav .nav-link:nth-last-child(2) {
+		padding-right: 1.5em;
+	}
+
+	#header nav a[href="#menu"] {
+		display: none;
+	}
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+#menu .links a.active {
+	color: var(--accent-light) !important;
+}
+
+/* Page introduction */
+
+.page-intro .eyebrow {
+	color: var(--accent-light);
+	font-size: 0.8em;
+	font-weight: 600;
+	letter-spacing: 0.25em;
+	margin: 0 0 0.5em 0;
+	text-transform: uppercase;
+}
+
+/* Home: how the portfolio is organised */
+
+.section-guide {
+	counter-reset: guide;
+	display: grid;
+	gap: 1.5em;
+	grid-template-columns: repeat(4, 1fr);
+	list-style: none;
+	margin: 2em 0;
+	padding: 0;
+}
+
+.section-guide li {
+	border-top: 2px solid var(--accent);
+	counter-increment: guide;
+	padding: 1em 0 0 0;
+}
+
+.section-guide li:before {
+	color: var(--accent-light);
+	content: "0" counter(guide);
+	display: block;
+	font-size: 0.8em;
+	font-weight: 600;
+	letter-spacing: 0.25em;
+	margin-bottom: 0.5em;
+}
+
+.section-guide a {
+	border-bottom: 0;
+	color: #ffffff;
+	font-weight: 600;
+}
+
+.section-guide p {
+	font-size: 0.9em;
+	margin: 0.5em 0 0 0;
+	opacity: 0.8;
+}
+
+@media screen and (max-width: 980px) {
+	.section-guide {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.section-guide {
+		grid-template-columns: 1fr;
+	}
+}
 
 /* Unit / section cards */
 
 .unit-section {
 	background: #ffffff;
-	border-radius: 12px;
-	margin: 40px 0;
+	border-radius: 10px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+	color: var(--ink);
+	margin: 0 0 40px 0;
 	overflow: hidden;
-	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-	color: #000000;
-	scroll-margin-top: 5em;
+	scroll-margin-top: 8em;
 }
 
 .unit-section h2 {
-	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	background: var(--accent);
 	color: #ffffff;
-	padding: 20px 30px;
-	margin: 0;
 	font-size: 1.5em;
+	margin: 0;
+	padding: 20px 30px;
 }
 
 .unit-section h2 .unit-weeks {
 	display: block;
-	font-size: 0.6em;
-	font-weight: 400;
-	letter-spacing: 0.1em;
+	font-size: 0.55em;
+	font-weight: 600;
+	letter-spacing: 0.2em;
 	opacity: 0.85;
 	text-transform: uppercase;
 }
 
 .unit-content {
+	color: var(--ink);
 	padding: 30px;
-	color: #000000;
 }
 
 .unit-content p,
 .unit-content li {
-	color: #000000;
+	color: var(--ink);
 	line-height: 1.8;
 }
 
 .unit-content strong {
-	color: #000000;
+	color: var(--ink);
 	font-weight: 700;
 }
 
 .unit-content h3 {
-	color: #2c3e50;
-	border-left: 4px solid #667eea;
-	padding-left: 15px;
+	border-left: 4px solid var(--accent);
+	color: var(--ink);
 	margin-bottom: 25px;
+	padding-left: 15px;
 }
 
 .unit-content a:not(.evidence-btn) {
-	color: #5a67d8;
-	border-bottom-color: rgba(90, 103, 216, 0.4);
+	border-bottom-color: rgba(77, 95, 174, 0.4);
+	color: var(--accent);
+}
+
+.unit-content a:not(.evidence-btn):hover {
+	color: var(--accent-dark) !important;
 }
 
 .topic-box {
-	background: #ffffff;
-	padding: 15px;
+	background: var(--tint);
 	border-radius: 8px;
 	margin-bottom: 20px;
-	border: 1px solid #e0e0e0;
+	padding: 15px 20px;
 }
 
 .topic-box p {
-	color: #000000 !important;
+	color: var(--ink) !important;
 }
 
 .topic-label {
-	font-weight: 600;
-	color: #667eea !important;
+	color: var(--accent) !important;
+	font-weight: 700;
 	margin-bottom: 5px;
 }
 
 .highlight-box {
-	background: #fff3cd;
-	border-left: 4px solid #ffc107;
-	padding: 20px;
-	margin: 20px 0;
+	background: var(--tint);
+	border-left: 4px solid var(--accent);
 	border-radius: 4px;
+	color: var(--ink);
 	font-style: italic;
-	color: #000000;
+	margin: 20px 0;
+	padding: 20px;
 }
 
 .highlight-box p {
-	color: #000000 !important;
+	color: var(--ink) !important;
 	font-weight: 500;
 }
 
@@ -98,25 +231,23 @@
 }
 
 .analysis-section h4 {
-	color: #000000;
-	margin-bottom: 15px;
+	color: var(--ink);
 	font-weight: 700;
+	margin-bottom: 15px;
 }
 
 .analysis-section p {
-	color: #000000 !important;
+	color: var(--ink) !important;
 	line-height: 1.8;
 }
 
 .outcomes-section {
-	background: #ffffff;
-	padding: 20px;
-	border-radius: 8px;
 	margin: 25px 0;
 }
 
 .outcomes-section h4 {
-	color: #28a745;
+	color: var(--ink);
+	font-weight: 700;
 	margin-bottom: 15px;
 }
 
@@ -126,137 +257,195 @@
 }
 
 .styled-list li {
-	padding: 8px 0;
-	padding-left: 30px;
+	padding: 8px 0 8px 30px;
 	position: relative;
 }
 
 .styled-list li:before {
+	color: var(--accent);
 	content: "✓";
-	position: absolute;
-	left: 0;
-	color: #28a745;
 	font-weight: bold;
+	left: 0;
+	position: absolute;
 }
 
 .skills-note {
-	color: #000000 !important;
+	color: var(--muted) !important;
 	font-style: italic;
-	margin-top: 10px;
 	font-weight: 500;
+	margin-top: 10px;
 }
 
 .metadata-row {
+	background: var(--tint);
+	border-radius: 8px;
 	display: flex;
 	flex-wrap: wrap;
 	gap: 30px;
 	margin: 25px 0;
 	padding: 15px;
-	background: #f1f3f5;
-	border-radius: 8px;
 }
 
 .meta-item {
+	color: var(--ink) !important;
 	flex: 1;
-	min-width: 250px;
-	color: #000000 !important;
 	font-weight: 500;
+	min-width: 250px;
 }
 
 .evidence-links {
+	border-top: 1px solid #e3e6f0;
 	margin-top: 25px;
 	padding-top: 20px;
-	border-top: 2px solid #e9ecef;
 }
 
 .evidence-btn {
-	display: inline-block;
-	padding: 10px 20px;
-	background: #667eea;
-	color: #ffffff !important;
-	border-radius: 6px;
+	background: var(--accent);
 	border-bottom: 0 !important;
-	text-decoration: none !important;
-	margin-right: 10px;
-	margin-bottom: 10px;
+	border-radius: 6px;
+	color: #ffffff !important;
+	display: inline-block;
 	line-height: 1.5;
-	transition: all 0.3s ease;
+	margin: 0 10px 10px 0;
+	padding: 10px 20px;
+	text-decoration: none !important;
+	transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .evidence-btn:hover {
-	background: #5a67d8;
+	background: var(--accent-dark);
+	color: #ffffff !important;
 	transform: translateY(-2px);
-	box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }
 
 /* Content still to be added: remove the placeholder block once the real content is in */
 
 .unit-content .placeholder {
-	border: 2px dashed #c3c8f0;
-	background: #f7f8fe;
+	background: #f7f8fd;
+	border: 2px dashed var(--tint-border);
 	border-radius: 8px;
-	padding: 15px 20px;
-	margin: 0 0 20px 0;
-	color: #6b7280 !important;
+	color: var(--muted) !important;
 	font-style: italic;
+	margin: 0 0 20px 0;
+	padding: 15px 20px;
 }
 
 .unit-content .placeholder:before {
+	color: var(--accent);
 	content: "To be added: ";
 	font-style: normal;
 	font-weight: 700;
-	color: #667eea;
 }
 
-/* Unit quick navigation on the Learning Artefacts page */
+/* Unit bar on the Learning Artefacts page: stays under the header while scrolling */
+
+.unit-nav-bar {
+	background: var(--navy);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	position: sticky;
+	top: var(--header-height);
+	z-index: 100;
+}
 
 .unit-nav {
 	display: flex;
-	flex-wrap: wrap;
-	gap: 10px;
+	gap: 8px;
 	list-style: none;
-	padding: 0;
-	margin: 0 0 1em 0;
+	margin: 0 auto;
+	max-width: 65em;
+	overflow-x: auto;
+	padding: 0.9em 3em;
+	scrollbar-width: none;
+}
+
+.unit-nav::-webkit-scrollbar {
+	display: none;
 }
 
 .unit-nav li {
+	flex: 0 0 auto;
 	padding: 0;
 }
 
 .unit-nav a {
-	display: inline-block;
-	min-width: 3.2em;
-	padding: 0.4em 0.9em;
-	text-align: center;
-	border: 2px solid rgba(255, 255, 255, 0.35);
+	border: 1px solid rgba(255, 255, 255, 0.25);
 	border-radius: 6px;
-	border-bottom-width: 2px;
+	display: inline-block;
+	font-size: 0.85em;
 	font-weight: 600;
-	text-decoration: none;
+	min-width: 2.6em;
+	padding: 0.3em 0.75em;
+	text-align: center;
+	transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .unit-nav a:hover {
-	border-color: #9bf1ff;
-	color: #9bf1ff !important;
+	border-color: var(--accent-light);
 }
 
-.back-to-top {
+.unit-nav a.active {
+	background: var(--accent);
+	border-color: var(--accent);
+	color: #ffffff !important;
+}
+
+/* Previous / next page links at the bottom of each page */
+
+.page-nav {
+	border-top: 1px solid rgba(255, 255, 255, 0.15);
+	display: flex;
+	gap: 1.5em;
+	justify-content: space-between;
+	margin-top: 1em;
+	padding-top: 2em;
+}
+
+.page-nav a {
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 8px;
+	display: block;
+	flex: 1;
+	max-width: 22em;
+	padding: 1em 1.25em;
+	transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.page-nav a:hover {
+	background: rgba(77, 95, 174, 0.15);
+	border-color: var(--accent-light);
+}
+
+.page-nav a.next {
+	margin-left: auto;
 	text-align: right;
-	margin: 0;
 }
 
-.back-to-top a {
-	font-size: 0.85em;
+.page-nav .label {
+	color: var(--accent-light);
+	display: block;
+	font-size: 0.75em;
+	font-weight: 600;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
 }
 
-@media screen and (max-width: 768px) {
+.page-nav .title {
+	color: #ffffff;
+	font-weight: 600;
+}
+
+@media screen and (max-width: 736px) {
 	.unit-content {
 		padding: 20px;
 	}
 
 	.unit-section h2 {
-		padding: 16px 20px;
 		font-size: 1.25em;
+		padding: 16px 20px;
+	}
+
+	.unit-nav {
+		padding: 0.75em 1.5em;
 	}
 
 	.metadata-row {
@@ -265,5 +454,13 @@
 
 	.meta-item {
 		min-width: 100%;
+	}
+
+	.page-nav {
+		flex-direction: column;
+	}
+
+	.page-nav a {
+		max-width: none;
 	}
 }

@@ -8,8 +8,11 @@ E-portfolio for the University of Essex Online Machine Learning module (July 202
 |------|------|----------|
 | Home | `index.html` | Introduction and links to each section |
 | Learning Artefacts | `artefacts.html` | Evidence for Units 1–12: readings, activities, wiki posts and discussions |
-| Projects | `projects.html` | Unit 6 team project and Unit 11 individual project |
+| Team Project | `team-project.html` | Unit 6 team project and my contribution |
+| Individual Project | `individual-project.html` | Unit 11 individual project |
 | Critical Reflection | `reflection.html` | Final reflection, unit reflections and references |
+
+Each page ends with Previous / Next links, so the portfolio can be read in the order above.
 
 ## Folders
 
