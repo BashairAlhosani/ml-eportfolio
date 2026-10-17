@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+	<rect width="800" height="500" fill="#242943"/>
+	<!-- rising steps: skills growing over the module -->
+	<g fill="#ffffff" fill-opacity="0.3">
+		<rect x="170" y="350" width="90" height="70"/>
+		<rect x="270" y="290" width="90" height="130"/>
+		<rect x="370" y="230" width="90" height="190"/>
+		<rect x="470" y="170" width="90" height="250"/>
+	</g>
+	<path d="M215 330 L315 270 L415 210 L515 150 L620 110" fill="none" stroke="#ffffff" stroke-opacity="0.6" stroke-width="3"/>
+	<path d="M600 100 L625 108 L612 130" fill="none" stroke="#ffffff" stroke-opacity="0.6" stroke-width="3"/>
+	<line x1="140" y1="420" x2="680" y2="420" stroke="#ffffff" stroke-opacity="0.3" stroke-width="2"/>
+</svg>
