@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+	<defs>
+		<linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#4a2a45"/>
+			<stop offset="1" stop-color="#6b3a5c"/>
+		</linearGradient>
+	</defs>
+	<rect width="800" height="500" fill="url(#g)"/>
+	<!-- small neural network -->
+	<g stroke="#ffffff" stroke-opacity="0.22" stroke-width="2">
+		<line x1="220" y1="150" x2="400" y2="120"/><line x1="220" y1="150" x2="400" y2="250"/><line x1="220" y1="150" x2="400" y2="380"/>
+		<line x1="220" y1="250" x2="400" y2="120"/><line x1="220" y1="250" x2="400" y2="250"/><line x1="220" y1="250" x2="400" y2="380"/>
+		<line x1="220" y1="350" x2="400" y2="120"/><line x1="220" y1="350" x2="400" y2="250"/><line x1="220" y1="350" x2="400" y2="380"/>
+		<line x1="400" y1="120" x2="580" y2="200"/><line x1="400" y1="250" x2="580" y2="200"/><line x1="400" y1="380" x2="580" y2="200"/>
+		<line x1="400" y1="120" x2="580" y2="300"/><line x1="400" y1="250" x2="580" y2="300"/><line x1="400" y1="380" x2="580" y2="300"/>
+	</g>
+	<g fill="#f5a3c7" fill-opacity="0.6">
+		<circle cx="220" cy="150" r="18"/><circle cx="220" cy="250" r="18"/><circle cx="220" cy="350" r="18"/>
+	</g>
+	<g fill="#9bf1ff" fill-opacity="0.6">
+		<circle cx="400" cy="120" r="18"/><circle cx="400" cy="250" r="18"/><circle cx="400" cy="380" r="18"/>
+	</g>
+	<g fill="#ffd27a" fill-opacity="0.6">
+		<circle cx="580" cy="200" r="18"/><circle cx="580" cy="300" r="18"/>
+	</g>
+</svg>

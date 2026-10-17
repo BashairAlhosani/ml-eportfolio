@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+	<defs>
+		<linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#1f3a4f"/>
+			<stop offset="1" stop-color="#2f5d6e"/>
+		</linearGradient>
+	</defs>
+	<rect width="800" height="500" fill="url(#g)"/>
+	<!-- three clusters -->
+	<g fill="#9bf1ff" fill-opacity="0.55">
+		<circle cx="220" cy="180" r="8"/><circle cx="250" cy="150" r="8"/><circle cx="270" cy="195" r="8"/>
+		<circle cx="200" cy="215" r="8"/><circle cx="240" cy="230" r="8"/><circle cx="285" cy="160" r="8"/>
+	</g>
+	<g fill="#ffd27a" fill-opacity="0.55">
+		<circle cx="540" cy="150" r="8"/><circle cx="575" cy="175" r="8"/><circle cx="520" cy="190" r="8"/>
+		<circle cx="560" cy="120" r="8"/><circle cx="600" cy="140" r="8"/><circle cx="550" cy="210" r="8"/>
+	</g>
+	<g fill="#f5a3c7" fill-opacity="0.55">
+		<circle cx="390" cy="350" r="8"/><circle cx="420" cy="380" r="8"/><circle cx="360" cy="385" r="8"/>
+		<circle cx="440" cy="340" r="8"/><circle cx="400" cy="410" r="8"/><circle cx="370" cy="330" r="8"/>
+	</g>
+	<g fill="none" stroke="#ffffff" stroke-opacity="0.3" stroke-width="2" stroke-dasharray="8 8">
+		<circle cx="242" cy="190" r="75"/>
+		<circle cx="557" cy="165" r="75"/>
+		<circle cx="400" cy="370" r="75"/>
+	</g>
+</svg>
