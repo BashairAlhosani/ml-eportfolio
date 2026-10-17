@@ -430,6 +430,45 @@ a.lo-tag:hover {
 	margin-top: 8px;
 }
 
+/* Artefact headings inside "Activities & Contributions" */
+
+.analysis-section h5 {
+	color: var(--accent);
+	font-size: 0.95em;
+	letter-spacing: 0.05em;
+	margin: 1.75em 0 0.5em 0;
+	text-transform: none;
+}
+
+.analysis-section h4 + h5 {
+	margin-top: 0;
+}
+
+.analysis-section ul {
+	margin-bottom: 1em;
+}
+
+.analysis-section .table-wrapper {
+	margin: 1em 0;
+}
+
+/* Two evidence images side by side */
+
+.figure-grid {
+	display: grid;
+	gap: 20px;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	margin: 25px 0;
+}
+
+.figure-grid .evidence-figure {
+	margin: 0;
+}
+
+.figure-grid .evidence-figure a {
+	max-height: 320px;
+}
+
 /* Harvard reference list with hanging indent */
 
 .reference-list {

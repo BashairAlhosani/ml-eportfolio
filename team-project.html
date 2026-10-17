@@ -71,16 +71,55 @@
     <div class="unit-content">
         <div class="lo-row">
             <span class="lo-label">Learning outcomes</span>
-            <span class="placeholder-inline">To be mapped</span>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO2: Applicability and challenges of different datasets for machine learning">LO2</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO3: Applying and critically appraising machine learning techniques where technical risk and uncertainty are involved">LO3</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO4: Skills to be an effective member of a development team in a virtual professional environment">LO4</a>
         </div>
         <div class="topic-box">
             <p class="topic-label">Project Brief</p>
-            <p class="placeholder">The project brief, the dataset and what the team set out to achieve.</p>
+            <p>Our team (Group 5) produced <em>Airbnb NYC Business Analysis: Price Prediction and Supply Segmentation</em>, using the New York City Airbnb Open Data (Dgomonov, 2019): 48,895 listings, or 48,870 after removing zero-price listings and leases of more than a year. We asked what drives listing prices, whether price can be predicted accurately enough to advise hosts, and which supply segments Airbnb should prioritise.</p>
         </div>
 
         <div class="analysis-section">
             <h4>Methods, Tools &amp; Technologies</h4>
-            <p class="placeholder">The machine learning techniques, libraries and tools used.</p>
+            <p>We engineered four features (such as days since the last review, calculated from a fixed date to avoid data leakage), log-transformed the price, and used an 80/20 train&ndash;test split with three-fold grid search. We compared linear regression, random forest (Breiman, 2001) and XGBoost (Chen and Guestrin, 2016), then used k-means to segment the listings. The silhouette score favoured two clusters, but we chose four for interpretability and reported this as a judgement call rather than a statistical optimum.</p>
+        </div>
+    </div>
+</div>
+
+<div class="unit-section" id="findings">
+    <h2>Findings &amp; Recommendation</h2>
+    <div class="unit-content">
+        <div class="analysis-section">
+            <h4>Model Performance</h4>
+            <div class="table-wrapper">
+                <table class="portfolio-table">
+                    <thead><tr><th>Model (test set)</th><th>R&sup2;</th><th>Median error</th><th>Within &plusmn;20%</th></tr></thead>
+                    <tbody>
+                        <tr><td>XGBoost (tuned)</td><td>0.623</td><td>23.4%</td><td>44.0%</td></tr>
+                        <tr><td>Random forest (tuned)</td><td>0.608</td><td>23.5%</td><td>43.1%</td></tr>
+                        <tr><td>Linear regression (baseline)</td><td>0.501</td><td>28.4%</td><td>36.8%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Accuracy was acceptable only for listings priced $51&ndash;$200. The model pulled very cheap and very expensive listings toward the market centre, with a median error of 67.8% above $500.</p>
+        </div>
+
+        <div class="analysis-section">
+            <h4>Segments and Recommendation</h4>
+            <p>K-means identified four supply segments; the largest, &ldquo;dormant hosts&rdquo;, made up 56.1% of listings. We recommended a scoped pilot rather than a pricing product: a price-alert tool for &ldquo;listed but not booking&rdquo; hosts in the $51&ndash;$200 range, where the model was reliable.</p>
+            <p class="skills-note">Limitations we reported: the data is a 2019 snapshot with no time dimension, it predates New York&rsquo;s Local Law 18 on short-term rentals, and it holds no guest records, so availability was only a proxy for demand.</p>
+        </div>
+
+        <div class="figure-grid">
+            <figure class="evidence-figure">
+                <a href="evidence/team-project-error-by-price-band.png" target="_blank" rel="noopener"><img src="evidence/team-project-error-by-price-band.png" alt="Prediction error by price band" loading="lazy" /></a>
+                <figcaption>Prediction error by price band: accuracy is acceptable only between $51 and $200.</figcaption>
+            </figure>
+            <figure class="evidence-figure">
+                <a href="evidence/team-project-segments.png" target="_blank" rel="noopener"><img src="evidence/team-project-segments.png" alt="Profiles of the four supply segments" loading="lazy" /></a>
+                <figcaption>The four supply segments identified by k-means.</figcaption>
+            </figure>
         </div>
     </div>
 </div>
@@ -104,8 +143,38 @@
             <p class="placeholder">The technical and professional skills this project demonstrates.</p>
         </div>
 
-        <div class="evidence-links">
-            <p class="placeholder">Evidence of my contribution: report, code and screenshots.</p>
+        <div class="figure-grid">
+            <figure class="evidence-figure">
+                <a href="evidence/team-project-submission.png" target="_blank" rel="noopener"><img src="evidence/team-project-submission.png" alt="Submission panel showing the team project report and peer review as done" loading="lazy" /></a>
+                <figcaption>Team project report and peer review, both submitted.</figcaption>
+            </figure>
+        </div>
+    </div>
+</div>
+
+<div class="unit-section" id="tutor-feedback">
+    <h2>Tutor Feedback</h2>
+    <div class="unit-content">
+        <div class="analysis-section">
+            <h4>Strengths</h4>
+            <ul class="styled-list">
+                <li>&ldquo;The report presents a clear business question and attempts to connect price prediction with supply segmentation.&rdquo;</li>
+                <li>&ldquo;The methodology is explained clearly, covering data cleaning, feature engineering, regression modelling, and clustering.&rdquo;</li>
+                <li>&ldquo;Several machine learning models were compared, and performance metrics were presented clearly.&rdquo;</li>
+            </ul>
+        </div>
+
+        <div class="analysis-section">
+            <h4>Areas to Improve</h4>
+            <ul>
+                <li>&ldquo;The submission does not clearly identify the individual team members.&rdquo;</li>
+                <li>&ldquo;The clustering analysis identifies four segments, but the discussion of these segments remains relatively descriptive.&rdquo;</li>
+                <li>&ldquo;Several conclusions are based on model outputs without sufficient critical discussion of model limitations and assumptions.&rdquo;</li>
+            </ul>
+            <div class="highlight-box">
+                <p>&ldquo;Overall, the technical work is acceptable, but stronger business analysis, deeper critical discussion, and clearer strategic recommendations are needed to achieve a higher mark.&rdquo;</p>
+            </div>
+            <p>I acted on the point about descriptive segments in the <a href="artefacts.html#unit-6">Unit 6 seminar tasks</a>, where I tested whether clusters were stable and meaningful rather than only describing their averages.</p>
         </div>
     </div>
 </div>

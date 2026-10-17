@@ -131,175 +131,359 @@
 
 <!-- Unit 2 -->
 <div class="unit-section" id="unit-2">
-    <h2><span class="unit-weeks">Unit 2</span>Unit title</h2>
+    <h2><span class="unit-weeks">Unit 2</span>Exploratory Data Analysis</h2>
     <div class="unit-content">
         <div class="lo-row">
             <span class="lo-label">Learning outcomes</span>
-            <span class="placeholder-inline">To be mapped</span>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO1: Legal, social, ethical and professional issues faced by machine learning professionals">LO1</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO2: Applicability and challenges of different datasets for machine learning">LO2</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO4: Skills to be an effective member of a development team in a virtual professional environment">LO4</a>
         </div>
         <div class="topic-box">
             <p class="topic-label">Unit Focus</p>
-            <p class="placeholder">The unit topic and its learning outcomes.</p>
+            <p>The steps of exploratory data analysis (EDA): exploring a dataset&rsquo;s features, spotting anomalies and analysing it visually so that it is ready for machine learning.</p>
         </div>
 
         <div class="analysis-section">
             <h4>Key Learning</h4>
-            <p class="placeholder">The main concepts from this unit, in my own words.</p>
+            <p>G&eacute;ron (2025) places exploring and visualising the data near the start of a machine learning project, before any model is chosen. The Auto-mpg seminar showed why. A standard missing-value check reported none, yet the horsepower column held six entries coded as &lsquo;?&rsquo;, which only appeared once the column was converted to numbers. EDA turned out to be less about drawing charts than about testing assumptions: that &ldquo;no missing values&rdquo; really means none, that numbers are not stored as text, and that strongly correlated features are not treated as independent.</p>
         </div>
 
         <div class="analysis-section">
             <h4>Activities &amp; Contributions</h4>
-            <p class="placeholder">Wiki posts, e-portfolio activities, discussion posts and exercises completed in this unit.</p>
+            <h5>Seminar: EDA on the Auto-mpg dataset</h5>
+            <p>I explored 398 cars from 1970&ndash;1982. After finding the hidden &lsquo;?&rsquo; values (1.5% of rows), I filled them with the median horsepower of cars with the same number of cylinders rather than the overall mean. Weight had the strongest link with fuel economy (r = &minus;0.83), but cylinders, displacement, horsepower and weight were correlated with each other at 0.84&ndash;0.95, so feeding all four into a model would count the same information several times. Average fuel economy rose from 17.7 mpg in 1970 to 31.7 mpg in 1982. As the brief asked, I encoded the region of origin as 1&ndash;3, but noted that these codes suggest an order that does not exist and demonstrated one-hot encoding as the safer choice.</p>
+
+            <h5>EDA tutorial: House Prices</h5>
+            <p>I ran the provided notebook and updated it for current library versions. A log transform reduced the skew of sale prices from 1.88 to 0.12. Many &ldquo;missing&rdquo; values, such as pool quality (99.5% empty), actually mean the house has no pool, so filling them with the most common value would invent features; a separate &ldquo;None&rdquo; category is more honest. I also found that newer versions of pandas read the text &ldquo;None&rdquo; as missing, so the same code can give different EDA results on different library versions.</p>
+
+            <h5>Collaborative Discussion 1: Peer Responses</h5>
+            <p>I replied to Vinod on the 2022 Rogers network outage, arguing for peer-reviewed changes, staged roll-outs with automatic rollback and separate networks, and for testing resilience deliberately rather than assuming it (Basiri et al., 2016). I replied to Fiaz on the WannaCry attack on the NHS, where a security patch had been available two months before the attack (National Audit Office, 2017).</p>
+            <div class="highlight-box">
+                <p>&ldquo;This points to a governance gap as much as a technical one: centrally enforced patching deadlines and compliance monitoring could have stopped the infection before it started.&rdquo;</p>
+            </div>
+            <p class="skills-note">The peer responses address LO1 through the regulation and governance of critical systems, and LO4 by building on classmates&rsquo; cases and ending with questions for discussion. The EDA work addresses LO2.</p>
+        </div>
+
+        <div class="figure-grid">
+            <figure class="evidence-figure">
+                <a href="evidence/unit-2-correlation-heatmap.png" target="_blank" rel="noopener"><img src="evidence/unit-2-correlation-heatmap.png" alt="Correlation heat map of the Auto-mpg features" loading="lazy" /></a>
+                <figcaption>Correlation heat map: weight, displacement, horsepower and cylinders are strongly linked to mpg and to each other.</figcaption>
+            </figure>
+            <figure class="evidence-figure">
+                <a href="evidence/unit-2-scatter-mpg.png" target="_blank" rel="noopener"><img src="evidence/unit-2-scatter-mpg.png" alt="Scatter plots of mpg against each feature, coloured by region" loading="lazy" /></a>
+                <figcaption>Fuel economy against each feature, coloured by region of origin.</figcaption>
+            </figure>
+        </div>
+
+        <div class="metadata-row">
+            <span class="meta-item"><strong>Skills applied:</strong> Data cleaning, data visualisation, critical thinking, academic writing</span>
+            <span class="meta-item"><strong>Tools:</strong> Jupyter Notebook, pandas, seaborn, missingno</span>
         </div>
 
         <div class="evidence-links">
-            <p class="placeholder">Evidence screenshots and files.</p>
+            <a href="evidence/unit-2-auto-mpg-eda.html" class="evidence-btn" target="_blank" rel="noopener">Auto-mpg EDA Notebook</a>
+            <a href="evidence/unit-2-eda-tutorial.html" class="evidence-btn" target="_blank" rel="noopener">EDA Tutorial Notebook</a>
+            <a href="evidence/unit-2-peer-response-vinod.png" class="evidence-btn" target="_blank" rel="noopener">Response to Vinod</a>
+            <a href="evidence/unit-2-peer-response-fiaz.png" class="evidence-btn" target="_blank" rel="noopener">Response to Fiaz</a>
         </div>
     </div>
 </div>
 
 <!-- Unit 3 -->
 <div class="unit-section" id="unit-3">
-    <h2><span class="unit-weeks">Unit 3</span>Unit title</h2>
+    <h2><span class="unit-weeks">Unit 3</span>Correlation and Regression</h2>
     <div class="unit-content">
         <div class="lo-row">
             <span class="lo-label">Learning outcomes</span>
-            <span class="placeholder-inline">To be mapped</span>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO1: Legal, social, ethical and professional issues faced by machine learning professionals">LO1</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO2: Applicability and challenges of different datasets for machine learning">LO2</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO3: Applying and critically appraising machine learning techniques where technical risk and uncertainty are involved">LO3</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO4: Skills to be an effective member of a development team in a virtual professional environment">LO4</a>
         </div>
         <div class="topic-box">
             <p class="topic-label">Unit Focus</p>
-            <p class="placeholder">The unit topic and its learning outcomes.</p>
+            <p>Correlation measures how strongly two variables are related and in which direction; regression turns that relationship into an equation that can be used for prediction.</p>
         </div>
 
         <div class="analysis-section">
             <h4>Key Learning</h4>
-            <p class="placeholder">The main concepts from this unit, in my own words.</p>
+            <p>Running the four notebooks with my own experiments showed how fragile these numbers are. A single outlier raised Pearson&rsquo;s r from 0.11 to 0.78, while a clear U-shaped relationship produced r = 0.01, because r only measures straight-line relationships. With samples of five, about one in five showed a negative correlation even though the true relationship was positive.</p>
+            <p>In polynomial regression, training R&sup2; rose with every extra degree, but the error on unseen points (leave-one-out cross-validation) was lowest at degree 3. A degree-10 model with R&sup2; = 0.99 predicted a car speed of 484 at midnight: overfitting in its plainest form (G&eacute;ron, 2025).</p>
         </div>
 
         <div class="analysis-section">
             <h4>Activities &amp; Contributions</h4>
-            <p class="placeholder">Wiki posts, e-portfolio activities, discussion posts and exercises completed in this unit.</p>
+            <h5>E-portfolio activity: correlation and regression experiments</h5>
+            <p>In simple regression, one high-leverage point controlled the slope, and duplicating every record left the line unchanged but made the p-value about 370 times smaller, showing how repeated records make results look more certain than they are. In multiple regression, the notebook&rsquo;s example predictions (2,300 and 3,300 kg) lay outside the data&rsquo;s 790&ndash;1,746 kg range, and adding one unusual car flipped the weight coefficient from positive to negative. If a model like this were used to set emissions taxes, these weaknesses could produce unfair figures.</p>
+
+            <h5>Collaborative Discussion 1: Summary Post</h5>
+            <p>Comparing my Southwest Airlines case with my peers&rsquo; cases (the Rogers outage, WannaCry and NotPetya), I concluded that the remedies were organisational rather than technological.</p>
+            <div class="highlight-box">
+                <p>&ldquo;Notably, none of this is technologically novel; they are organisational and governance choices, supporting Metcalf&rsquo;s (2024) argument that the harms of technology stem from human decisions about design and implementation rather than the technology itself.&rdquo;</p>
+            </div>
+
+            <h5>Peer response to Dzemal</h5>
+            <p>On the NotPetya attack on Maersk, I argued for supply-chain risk management, enforced patching, network segmentation and deliberately tested offline backups, noting that Maersk recovered only because one domain controller happened to be offline (Greenberg, 2018).</p>
+
+            <h5>Feedback received</h5>
+            <p>Three peers responded to my initial post. All agreed that penalties alone would not drive modernisation, and they added measures such as failover scheduling systems, stress testing and benchmarking against other airlines. Their feedback is summarised on the <a href="development.html#feedback">Professional Development</a> page.</p>
+            <p class="skills-note">The experiments address LO2 and LO3 (outliers, leverage, small samples, extrapolation and overfitting); the discussion posts address LO1 and LO4.</p>
+        </div>
+
+        <div class="figure-grid">
+            <figure class="evidence-figure">
+                <a href="evidence/unit-3-polynomial-degrees.png" target="_blank" rel="noopener"><img src="evidence/unit-3-polynomial-degrees.png" alt="Polynomial fits of different degrees and their cross-validation error" loading="lazy" /></a>
+                <figcaption>Polynomial degree comparison: training R&sup2; keeps rising, but error on unseen points is lowest at degree 3.</figcaption>
+            </figure>
+            <figure class="evidence-figure">
+                <a href="evidence/unit-3-outlier-effect.png" target="_blank" rel="noopener"><img src="evidence/unit-3-outlier-effect.png" alt="Scatter plots with and without one outlier" loading="lazy" /></a>
+                <figcaption>One outlier turns an unrelated dataset (r = 0.11) into an apparently strong correlation (r = 0.78).</figcaption>
+            </figure>
+        </div>
+
+        <div class="metadata-row">
+            <span class="meta-item"><strong>Skills applied:</strong> Statistical analysis, experimentation, critical thinking, academic writing</span>
+            <span class="meta-item"><strong>Tools:</strong> Jupyter Notebook, NumPy, SciPy, scikit-learn, matplotlib</span>
         </div>
 
         <div class="evidence-links">
-            <p class="placeholder">Evidence screenshots and files.</p>
+            <a href="evidence/unit-3-ex1-correlation.html" class="evidence-btn" target="_blank" rel="noopener">Correlation Notebook</a>
+            <a href="evidence/unit-3-ex2-linear-regression.html" class="evidence-btn" target="_blank" rel="noopener">Linear Regression Notebook</a>
+            <a href="evidence/unit-3-ex3-multiple-regression.html" class="evidence-btn" target="_blank" rel="noopener">Multiple Regression Notebook</a>
+            <a href="evidence/unit-3-ex4-polynomial-regression.html" class="evidence-btn" target="_blank" rel="noopener">Polynomial Regression Notebook</a>
+            <a href="evidence/unit-3-discussion-1-summary-post.png" class="evidence-btn" target="_blank" rel="noopener">Summary Post</a>
+            <a href="evidence/unit-3-peer-response-dzemal.png" class="evidence-btn" target="_blank" rel="noopener">Response to Dzemal</a>
         </div>
     </div>
 </div>
 
 <!-- Unit 4 -->
 <div class="unit-section" id="unit-4">
-    <h2><span class="unit-weeks">Unit 4</span>Unit title</h2>
+    <h2><span class="unit-weeks">Unit 4</span>Linear Regression with Scikit-Learn</h2>
     <div class="unit-content">
         <div class="lo-row">
             <span class="lo-label">Learning outcomes</span>
-            <span class="placeholder-inline">To be mapped</span>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO1: Legal, social, ethical and professional issues faced by machine learning professionals">LO1</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO2: Applicability and challenges of different datasets for machine learning">LO2</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO3: Applying and critically appraising machine learning techniques where technical risk and uncertainty are involved">LO3</a>
         </div>
         <div class="topic-box">
             <p class="topic-label">Unit Focus</p>
-            <p class="placeholder">The unit topic and its learning outcomes.</p>
+            <p>Using Scikit-Learn to model linear relationships, building multivariate linear regression models, and evaluating how well a model performs.</p>
         </div>
 
         <div class="analysis-section">
             <h4>Key Learning</h4>
-            <p class="placeholder">The main concepts from this unit, in my own words.</p>
+            <p>G&eacute;ron (2025) describes training a linear regression model as finding the parameters that minimise its prediction error, and this unit showed that evaluating a model matters as much as fitting it. In the fuel consumption demo, the provided code first reported an R&sup2; of &minus;18.82. Tracing this revealed two bugs: predictions were made from the wrong data, and the arguments to the R&sup2; function were reversed. After fixing them and fixing the random seed for reproducibility, the models performed as follows on test data:</p>
+            <div class="table-wrapper">
+                <table class="portfolio-table">
+                    <thead><tr><th>Predictors of CO&#8322; emissions</th><th>Mean absolute error</th><th>Test R&sup2;</th></tr></thead>
+                    <tbody>
+                        <tr><td>Engine size</td><td>22.6</td><td>0.78</td></tr>
+                        <tr><td>Combined fuel consumption</td><td>20.4</td><td>0.80</td></tr>
+                        <tr><td>Engine size, cylinders and fuel consumption</td><td>16.0</td><td>0.87</td></tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <div class="analysis-section">
             <h4>Activities &amp; Contributions</h4>
-            <p class="placeholder">Wiki posts, e-portfolio activities, discussion posts and exercises completed in this unit.</p>
+            <h5>Seminar Tasks A&ndash;B: population vs GDP per capita</h5>
+            <p>Using World Bank data for 2001&ndash;2021, I removed 49 regional aggregates, calculated GDP per capita from total GDP and population (the GDP file held totals and ended in 2020), and kept countries with at least half of the years available, leaving 208. Population and GDP per capita were essentially unrelated: Pearson&rsquo;s r was &minus;0.067 (p = 0.34) and the regression R&sup2; was 0.0045. On a held-out test set the model did no better than simply predicting the average. Because the scatter plot was L-shaped, I also used a log scale and Spearman&rsquo;s rank correlation, which showed only a weak negative link (about &minus;0.3), driven by wealthy micro-states. Population alone is not a useful predictor of a country&rsquo;s income per person.</p>
+            <p class="skills-note">The missing data was not random: it mostly affected small territories and countries in conflict, such as Somalia and South Sudan. Dropping them leaves out exactly the countries a global analysis should not ignore, so this limitation needs to be reported openly (LO1, LO2).</p>
+        </div>
+
+        <div class="figure-grid">
+            <figure class="evidence-figure">
+                <a href="evidence/unit-4-population-gdp-scatter.png" target="_blank" rel="noopener"><img src="evidence/unit-4-population-gdp-scatter.png" alt="Scatter plots of population against GDP per capita on linear and log scales" loading="lazy" /></a>
+                <figcaption>Population vs GDP per capita: an L-shaped cloud on a linear scale (left) and a weak negative link on a log scale (right).</figcaption>
+            </figure>
+            <figure class="evidence-figure">
+                <a href="evidence/unit-4-missing-values.png" target="_blank" rel="noopener"><img src="evidence/unit-4-missing-values.png" alt="Heat maps of missing population and GDP values by country and year" loading="lazy" /></a>
+                <figcaption>Missing values by country and year: the gaps sit at the start or end of each series.</figcaption>
+            </figure>
+        </div>
+
+        <div class="metadata-row">
+            <span class="meta-item"><strong>Skills applied:</strong> Data preparation, regression modelling, model evaluation, debugging</span>
+            <span class="meta-item"><strong>Tools:</strong> Jupyter Notebook, pandas, scikit-learn, SciPy</span>
         </div>
 
         <div class="evidence-links">
-            <p class="placeholder">Evidence screenshots and files.</p>
+            <a href="evidence/unit-4-seminar-population-gdp.html" class="evidence-btn" target="_blank" rel="noopener">Seminar Notebook</a>
+            <a href="evidence/unit-4-fuel-consumption-regression.html" class="evidence-btn" target="_blank" rel="noopener">Fuel Consumption Notebook</a>
         </div>
     </div>
 </div>
 
 <!-- Unit 5 -->
 <div class="unit-section" id="unit-5">
-    <h2><span class="unit-weeks">Unit 5</span>Unit title</h2>
+    <h2><span class="unit-weeks">Unit 5</span>Clustering</h2>
     <div class="unit-content">
         <div class="lo-row">
             <span class="lo-label">Learning outcomes</span>
-            <span class="placeholder-inline">To be mapped</span>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO1: Legal, social, ethical and professional issues faced by machine learning professionals">LO1</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO2: Applicability and challenges of different datasets for machine learning">LO2</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO3: Applying and critically appraising machine learning techniques where technical risk and uncertainty are involved">LO3</a>
         </div>
         <div class="topic-box">
             <p class="topic-label">Unit Focus</p>
-            <p class="placeholder">The unit topic and its learning outcomes.</p>
+            <p>The logic of clustering, different ways of measuring distance and similarity, k-means and hierarchical clustering, and how to evaluate the clusters they produce.</p>
         </div>
 
         <div class="analysis-section">
             <h4>Key Learning</h4>
-            <p class="placeholder">The main concepts from this unit, in my own words.</p>
+            <p>Clustering always returns groups, so the real skill is judging whether they mean anything. Reproducing the unit&rsquo;s k-means animations in code made this concrete: on uniformly scattered points with no structure at all, k-means still produced four tidy clusters. The silhouette score and the sum of squared errors help to tell real structure from imposed structure (Thinsungnoen et al., 2015): data with four genuine groups reached a silhouette of 0.56 at k = 4, while the uniform points never exceeded 0.42.</p>
         </div>
 
         <div class="analysis-section">
             <h4>Activities &amp; Contributions</h4>
-            <p class="placeholder">Wiki posts, e-portfolio activities, discussion posts and exercises completed in this unit.</p>
+            <h5>E-portfolio activity: Jaccard coefficient</h5>
+            <p>For three patients&rsquo; symptoms and test results, I calculated Jaccard distances of 0.33 (Jack&ndash;Mary), 0.67 (Jack&ndash;Jim) and 0.75 (Jim&ndash;Mary), excluding gender and treating &lsquo;A&rsquo; as absent, following Han, Kamber and Pei (2012). Because the task never defines &lsquo;A&rsquo;, I also tested reading it as &ldquo;abnormal&rdquo;, which made Jack and Jim the most similar pair instead. Unlike simple matching, the Jaccard coefficient ignores shared negatives, which suits medical findings where most results are negative.</p>
+            <p class="skills-note">Health data is special-category personal data under UK GDPR, and a similarity score is not a diagnosis, so encoding choices like these need to be documented (LO1).</p>
+
+            <h5>K-means step by step</h5>
+            <p>I implemented k-means from scratch and checked it against scikit-learn. With four groups and one outlier, two of five starting positions failed to find the groups, and in one of them the outlier captured a whole centroid. Repeating each strategy 200 times, a single random start found the true groups 82% of the time, a single k-means++ start 97% (Arthur and Vassilvitskii, 2007), and the best of ten starts 100%.</p>
+        </div>
+
+        <div class="figure-grid">
+            <figure class="evidence-figure">
+                <a href="evidence/unit-5-kmeans-five-starts.png" target="_blank" rel="noopener"><img src="evidence/unit-5-kmeans-five-starts.png" alt="K-means results from five different starting positions" loading="lazy" /></a>
+                <figcaption>Five starting positions on the same data: two fail, and the outlier captures a centroid.</figcaption>
+            </figure>
+            <figure class="evidence-figure">
+                <a href="evidence/unit-5-elbow-silhouette.png" target="_blank" rel="noopener"><img src="evidence/unit-5-elbow-silhouette.png" alt="Elbow and silhouette curves for grouped and uniform data" loading="lazy" /></a>
+                <figcaption>Elbow and silhouette: a clear peak at k = 4 for real groups, a flat line for uniform points.</figcaption>
+            </figure>
+        </div>
+
+        <div class="metadata-row">
+            <span class="meta-item"><strong>Skills applied:</strong> Algorithm implementation, cluster validation, critical thinking, ethical awareness</span>
+            <span class="meta-item"><strong>Tools:</strong> Jupyter Notebook, NumPy, SciPy, scikit-learn, matplotlib</span>
         </div>
 
         <div class="evidence-links">
-            <p class="placeholder">Evidence screenshots and files.</p>
+            <a href="evidence/unit-5-jaccard.html" class="evidence-btn" target="_blank" rel="noopener">Jaccard Notebook</a>
+            <a href="evidence/unit-5-kmeans-step-by-step.html" class="evidence-btn" target="_blank" rel="noopener">K-means Notebook</a>
+            <a href="evidence/unit-5-kmeans-animation.gif" class="evidence-btn" target="_blank" rel="noopener">K-means Animation</a>
+            <a href="evidence/unit-5-jaccard-measures.png" class="evidence-btn" target="_blank" rel="noopener">Similarity Measures Chart</a>
         </div>
     </div>
 </div>
 
 <!-- Unit 6 -->
 <div class="unit-section" id="unit-6">
-    <h2><span class="unit-weeks">Unit 6</span>Unit title</h2>
+    <h2><span class="unit-weeks">Unit 6</span>Clustering with Python</h2>
     <div class="unit-content">
         <div class="lo-row">
             <span class="lo-label">Learning outcomes</span>
-            <span class="placeholder-inline">To be mapped</span>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO1: Legal, social, ethical and professional issues faced by machine learning professionals">LO1</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO2: Applicability and challenges of different datasets for machine learning">LO2</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO3: Applying and critically appraising machine learning techniques where technical risk and uncertainty are involved">LO3</a>
         </div>
         <div class="topic-box">
             <p class="topic-label">Unit Focus</p>
-            <p class="placeholder">The unit topic and its learning outcomes.</p>
+            <p>Applying k-means clustering to real datasets with Python&rsquo;s scikit-learn library, and evaluating and interpreting the results.</p>
         </div>
 
         <div class="analysis-section">
             <h4>Key Learning</h4>
-            <p class="placeholder">The main concepts from this unit, in my own words.</p>
+            <p>Working with real datasets showed that preprocessing decisions shape a clustering result as much as the algorithm does. On the Wine data (Aeberhard and Forina, 1992), standardising the features raised the match between clusters and the real grape varieties from 70.2% to 96.6%, because one feature, proline (ranging from 278 to 1,680), otherwise dominated the distances. On Iris (Fisher, 1936), the elbow pointed to three clusters but the silhouette score preferred two, while domain knowledge says there are three species: the metrics alone would have given the wrong answer.</p>
         </div>
 
         <div class="analysis-section">
             <h4>Activities &amp; Contributions</h4>
-            <p class="placeholder">Wiki posts, e-portfolio activities, discussion posts and exercises completed in this unit.</p>
-            <p class="skills-note">The Unit 6 team project is documented on the <a href="team-project.html">Team Project</a> page.</p>
+            <h5>Seminar Tasks A&ndash;C: Iris, Wine and Australian weather</h5>
+            <p>The brief asked for at least one task; I completed all three, removing the label columns before clustering and using them only to check the results. On 120,381 days of Australian weather there were no natural clusters (silhouette 0.23), yet k = 3 produced a useful &ldquo;wet, windy, low-pressure&rdquo; group in which rain followed the next day 47% of the time, against 22% overall.</p>
+
+            <h5>K-means demo: customer segmentation</h5>
+            <p>Reviewing the provided notebook, I found that it standardised the data but then fitted the model on the unscaled version, so income, with a spread 42 times larger than education&rsquo;s, decided the segments. It also silently set 150 unknown loan-default values (18%) to zero. Correcting the scaling lowered the silhouette from 0.56 to 0.29 but produced segments that reflected more than income: a higher silhouette is not a better segmentation.</p>
+            <p class="skills-note">Credit-default data is personal financial data under UK GDPR, so preprocessing choices like these must be documented and justified before segments are used for decisions about real people (LO1).</p>
+
+            <h5>Link to the team project</h5>
+            <p>These tasks connected directly to the tutor&rsquo;s feedback on our team project, which described our four Airbnb segments as &ldquo;relatively descriptive&rdquo;. They showed me that a segment should be presented with evidence that it is stable and meaningful. The team project itself is documented on the <a href="team-project.html">Team Project</a> page.</p>
+        </div>
+
+        <div class="figure-grid">
+            <figure class="evidence-figure">
+                <a href="evidence/unit-6-wine-scaling.png" target="_blank" rel="noopener"><img src="evidence/unit-6-wine-scaling.png" alt="Wine data: real classes, raw k-means and standardised k-means" loading="lazy" /></a>
+                <figcaption>Wine data: standardising the features (right) recovers the real classes far better than raw k-means (centre).</figcaption>
+            </figure>
+            <figure class="evidence-figure">
+                <a href="evidence/unit-6-customer-segmentation.png" target="_blank" rel="noopener"><img src="evidence/unit-6-customer-segmentation.png" alt="Three versions of a customer segmentation" loading="lazy" /></a>
+                <figcaption>Customer segments as written, after fixing the scaling, and without the unreliable default column.</figcaption>
+            </figure>
+        </div>
+
+        <div class="metadata-row">
+            <span class="meta-item"><strong>Skills applied:</strong> Clustering analysis, data preprocessing, code review, ethical awareness</span>
+            <span class="meta-item"><strong>Tools:</strong> Jupyter Notebook, pandas, scikit-learn, matplotlib</span>
         </div>
 
         <div class="evidence-links">
-            <p class="placeholder">Evidence screenshots and files.</p>
+            <a href="evidence/unit-6-seminar-kmeans.html" class="evidence-btn" target="_blank" rel="noopener">Seminar Notebook</a>
+            <a href="evidence/unit-6-kmeans-demo.html" class="evidence-btn" target="_blank" rel="noopener">K-means Demo Notebook</a>
+            <a href="evidence/unit-6-iris-clusters.png" class="evidence-btn" target="_blank" rel="noopener">Iris Clusters Chart</a>
         </div>
     </div>
 </div>
 
 <!-- Unit 7 -->
 <div class="unit-section" id="unit-7">
-    <h2><span class="unit-weeks">Unit 7</span>Unit title</h2>
+    <h2><span class="unit-weeks">Unit 7</span>Introduction to Artificial Neural Networks</h2>
     <div class="unit-content">
         <div class="lo-row">
             <span class="lo-label">Learning outcomes</span>
-            <span class="placeholder-inline">To be mapped</span>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO2: Applicability and challenges of different datasets for machine learning">LO2</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO3: Applying and critically appraising machine learning techniques where technical risk and uncertainty are involved">LO3</a>
         </div>
         <div class="topic-box">
             <p class="topic-label">Unit Focus</p>
-            <p class="placeholder">The unit topic and its learning outcomes.</p>
+            <p>How artificial neurons mirror biological ones, the algorithm behind artificial neural networks (ANNs), and the activation functions they use.</p>
         </div>
 
         <div class="analysis-section">
             <h4>Key Learning</h4>
-            <p class="placeholder">The main concepts from this unit, in my own words.</p>
+            <p>Rosenblatt&rsquo;s (1958) perceptron adds up weighted inputs and fires when the total passes a threshold, so a single perceptron can only separate classes that a straight line can divide. That is why it cannot learn XOR (Minsky and Papert, 1969). Adding a hidden layer, trained by backpropagation (Rumelhart, Hinton and Williams, 1986), solves the problem, because each hidden neuron draws its own line and the output neuron combines them. The shape of the data therefore decides which model can work at all.</p>
         </div>
 
         <div class="analysis-section">
             <h4>Activities &amp; Contributions</h4>
-            <p class="placeholder">Wiki posts, e-portfolio activities, discussion posts and exercises completed in this unit.</p>
+            <h5>E-portfolio activity: three perceptron notebooks</h5>
+            <p><strong>Simple perceptron.</strong> Varying the weights and inputs showed that large inputs make almost any positive weights fire, which is why inputs are usually scaled before training.</p>
+            <p><strong>AND operator.</strong> The provided training rule uses the absolute error and no bias, so the weights can only increase. It learned AND and OR but never NAND or XOR. With the standard rule (signed error plus a bias) it learned NAND in 13 epochs, while XOR still failed. I also added a maximum number of epochs, since the original loop would run forever on a gate it cannot learn.</p>
+            <p><strong>Multi-layer perceptron.</strong> The provided notebook only ran in its author&rsquo;s session because of an undefined variable. After fixing it and setting a random seed, my network classified all four XOR inputs correctly. I noted that the notebook&rsquo;s &ldquo;accuracy&rdquo; (1 minus the mean error) is not true accuracy. Over ten random starts, the number of hidden neurons made a clear difference, and one run with three neurons got stuck in a local minimum:</p>
+            <div class="table-wrapper">
+                <table class="portfolio-table">
+                    <thead><tr><th>Hidden neurons</th><th>1</th><th>2</th><th>3</th><th>5</th><th>10</th></tr></thead>
+                    <tbody><tr><td>Runs that solved XOR (of 10)</td><td>0</td><td>3</td><td>9</td><td>10</td><td>10</td></tr></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="figure-grid">
+            <figure class="evidence-figure">
+                <a href="evidence/unit-7-logic-gates.png" target="_blank" rel="noopener"><img src="evidence/unit-7-logic-gates.png" alt="Perceptron decision regions for AND, OR, NAND and XOR under two training rules" loading="lazy" /></a>
+                <figcaption>Logic gates under the original and standard training rules: XOR is never learned by a single perceptron.</figcaption>
+            </figure>
+            <figure class="evidence-figure">
+                <a href="evidence/unit-7-training-curves.png" target="_blank" rel="noopener"><img src="evidence/unit-7-training-curves.png" alt="Training error curves for ten random starts" loading="lazy" /></a>
+                <figcaption>Training error for ten random starts: one run stalls in a local minimum.</figcaption>
+            </figure>
+        </div>
+
+        <div class="metadata-row">
+            <span class="meta-item"><strong>Skills applied:</strong> Neural network implementation, debugging, experimentation, reproducibility</span>
+            <span class="meta-item"><strong>Tools:</strong> Jupyter Notebook, NumPy, matplotlib</span>
         </div>
 
         <div class="evidence-links">
-            <p class="placeholder">Evidence screenshots and files.</p>
+            <a href="evidence/unit-7-ex1-simple-perceptron.html" class="evidence-btn" target="_blank" rel="noopener">Simple Perceptron Notebook</a>
+            <a href="evidence/unit-7-ex2-perceptron-logic-gates.html" class="evidence-btn" target="_blank" rel="noopener">Logic Gates Notebook</a>
+            <a href="evidence/unit-7-ex3-multilayer-perceptron.html" class="evidence-btn" target="_blank" rel="noopener">Multi-layer Perceptron Notebook</a>
+            <a href="evidence/unit-7-hidden-neurons.png" class="evidence-btn" target="_blank" rel="noopener">Hidden Neurons Chart</a>
         </div>
     </div>
 </div>
