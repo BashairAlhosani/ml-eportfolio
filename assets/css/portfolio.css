@@ -185,6 +185,7 @@ html {
 
 .unit-content {
 	color: var(--ink);
+	font-weight: 400;
 	padding: 30px;
 }
 
@@ -245,6 +246,12 @@ html {
 .highlight-box p {
 	color: var(--ink) !important;
 	font-weight: 500;
+	margin: 0;
+}
+
+.topic-box p:last-child,
+.analysis-section p:last-child {
+	margin-bottom: 0;
 }
 
 .analysis-section {
@@ -368,6 +375,84 @@ html {
 	letter-spacing: 0.05em;
 	line-height: 1.6;
 	padding: 0 0.6em;
+}
+
+a.lo-tag {
+	border-bottom: 0 !important;
+	color: #ffffff !important;
+}
+
+a.lo-tag:hover {
+	background: var(--accent-dark);
+	color: #ffffff !important;
+}
+
+/* Evidence screenshots shown inside a card */
+
+.evidence-figure {
+	margin: 25px 0;
+}
+
+.evidence-figure a {
+	border: 1px solid #e3e6f0;
+	border-bottom: 1px solid #e3e6f0 !important;
+	border-radius: 8px;
+	display: block;
+	max-height: 420px;
+	overflow: hidden;
+	position: relative;
+	transition: box-shadow 0.2s ease;
+}
+
+.evidence-figure a:after {
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #ffffff);
+	bottom: 0;
+	content: "";
+	height: 80px;
+	left: 0;
+	position: absolute;
+	right: 0;
+}
+
+.evidence-figure a:hover {
+	box-shadow: 0 4px 16px rgba(77, 95, 174, 0.25);
+}
+
+.evidence-figure img {
+	display: block;
+	width: 100%;
+}
+
+.evidence-figure figcaption {
+	color: var(--muted);
+	font-size: 0.85em;
+	font-style: italic;
+	margin-top: 8px;
+}
+
+/* Harvard reference list with hanging indent */
+
+.reference-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.reference-list li {
+	line-height: 1.7;
+	margin-bottom: 1em;
+	padding-left: 2em;
+	text-indent: -2em;
+}
+
+.evidence-list {
+	margin: 0;
+	padding-left: 1.1em;
+}
+
+.evidence-list li {
+	line-height: 1.6;
+	padding: 0;
 }
 
 /* Tables inside the white cards */
