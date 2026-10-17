@@ -67,11 +67,15 @@
 							<div class="inner">
 
 <div class="unit-section" id="final-reflection">
-    <h2><span class="unit-weeks">Maximum 1,000 words</span>Final Reflection</h2>
+    <h2>Final Reflection: Machine Learning and Professional Development</h2>
     <div class="unit-content">
         <div class="topic-box">
             <p class="topic-label">Reflective Model</p>
-            <p class="placeholder">How the reflection is structured using Rolfe et al.'s (2001) model, and its word count.</p>
+            <p>Structured using Rolfe, Freshwater and Jasper's (2001) model: What? So what? Now what? The reflection covers my knowledge of the machine learning algorithms in this module, my individual contribution to the team activities, my experience as a member of a development team, and the impact on my professional and personal development.</p>
+        </div>
+        <div class="metadata-row">
+            <span class="meta-item"><strong>Word count:</strong> 918 words (limit 1,000), excluding headings and references</span>
+            <span class="meta-item"><strong>Also submitted:</strong> as a Word document with this portfolio&rsquo;s address in its title</span>
         </div>
     </div>
 </div>
@@ -79,10 +83,8 @@
 <div class="unit-section" id="what">
     <h2><span class="unit-weeks">Description</span>What?</h2>
     <div class="unit-content">
-
         <div class="analysis-section">
-            <h4>The Module and the Projects</h4>
-            <p class="placeholder">A brief description of the module, the team project and the individual project, and the key incidents this reflection focuses on.</p>
+            <p>Over twelve units I progressed from exploratory data analysis and regression to clustering, neural networks and convolutional neural networks (CNNs), alongside two collaborative discussions and two projects. In Unit 6, our team (Group 5) analysed 48,870 New York Airbnb listings, predicting price with linear regression, random forest and XGBoost (Chen and Guestrin, 2016) and segmenting supply with k-means. In Unit 11, I compared a support vector machine (SVM) using hand-crafted features with a CNN on CIFAR-10 (Krizhevsky, 2009). Two incidents shape this reflection: carrying most of the team project, and the tutor's feedback that our report was technically sound but "relatively descriptive", with insufficient critical discussion of limitations.</p>
         </div>
     </div>
 </div>
@@ -90,42 +92,58 @@
 <div class="unit-section" id="so-what">
     <h2><span class="unit-weeks">Analysis</span>So What?</h2>
     <div class="unit-content">
-
         <div class="analysis-section">
-            <h4>My Knowledge of Machine Learning Algorithms</h4>
-            <p class="placeholder">A critical analysis of the algorithms covered in the module and how my understanding of them developed.</p>
+            <h4>My knowledge of machine learning algorithms</h4>
+            <p>I began the module believing that the best model was simply the one with the highest score. The weekly experiments dismantled this belief. In Unit 3, a single outlier turned an unrelated dataset into an apparently strong correlation (r = 0.11 to 0.78). In Unit 5, k-means produced four neat clusters from uniformly random points, and in Unit 7 a single perceptron could never learn XOR. Each showed that an algorithm always returns an answer, and that judging whether the answer means anything is the practitioner's responsibility (Domingos, 2012).</p>
+            <p>The CNN units extended this to deep learning. The Unit 9 network reached 64.6% accuracy overall but only 42% on cats, and in Unit 10 a CNN labelled a chest X-ray "ladybug" with 53% confidence, because a softmax output cannot say "none of these". By Unit 11 I was evaluating models rather than merely training them. Cross-validation exposed an SVM that scored 99.7% on its training folds but 63.0% on validation; LIME (Ribeiro, Singh and Guestrin, 2016) showed it calling a bird an airplane because of the sky behind it; and a controlled brightness test showed the more accurate CNN falling from 88% to 62% in low light while the SVM barely changed. Classical and deep models fail in different ways, so choosing between them is a question of risk, not only of accuracy.</p>
         </div>
 
         <div class="analysis-section">
-            <h4>My Individual Contribution to the Team Activities</h4>
-            <p class="placeholder">What I contributed to the team, evaluated critically.</p>
+            <h4>My individual contribution to the team activities</h4>
+            <p>Participation in our team was uneven, and in practice I carried most of the project: the data cleaning and feature engineering, the regression and clustering code, the error analysis by price band, and most of the writing. I fixed the snapshot date to prevent data leakage, and I reported the choice of four clusters as a judgement call rather than a statistical optimum. I am proud of that work, but the feedback revealed its limits. A report built largely by one person reflected one perspective: strong on technique, weaker on the business interpretation that more voices might have challenged. The tutor also noted that the report did not identify the team members; as the person assembling the final document, I should have caught that omission.</p>
         </div>
 
         <div class="analysis-section">
-            <h4>My Experience as a Member of a Development Team</h4>
-            <p class="placeholder">How working in the team felt, how my emotions affected my work, and what I learned from it, supported by literature.</p>
+            <h4>My experience as a member of a development team</h4>
+            <p>The imbalance was frustrating and stressful, particularly as the deadline approached. The pressure also affected the work itself: short of time, I prioritised finishing the analysis over refining its business interpretation, which is exactly where the feedback found weaknesses. Research on social loafing shows that individual effort falls when contributions are pooled and difficult to identify (Latané, Williams and Harkins, 1979), and distributed teams are prone to conflict because members lack shared context (Hinds and Bailey, 2003). Understanding this helped me respond constructively rather than personally: I kept sharing drafts and allocating tasks so that others could still contribute, and I chose not to escalate. In Tuckman's (1965) terms, our team never progressed fully from forming to performing. Looking back, I compensated by doing the work myself instead of building the structures that make contributions visible: agreed roles, a contribution log and short meetings with recorded actions. Completing the project nevertheless gave me confidence that I can deliver a complete machine learning analysis from start to finish.</p>
+            <p>The collaborative discussions provided the peer challenge that the team project lacked. In Discussion 2, my peers' cases exposed gaps in my framework for assessing AI writers, and revising it in my summary post taught me more than defending it would have done.</p>
         </div>
+
     </div>
 </div>
 
 <div class="unit-section" id="now-what">
     <h2><span class="unit-weeks">Action</span>Now What?</h2>
     <div class="unit-content">
-
         <div class="analysis-section">
-            <h4>Impact on My Professional and Personal Development</h4>
-            <p class="placeholder">How this module changed my practice, and how I will apply what I learned.</p>
+            <h4>Impact on my professional and personal development</h4>
+            <p>I intend to apply machine learning in business and finance, and this module has changed my view of what that requires. Financial models affect people directly: AI systems used to assess creditworthiness are classified as high-risk under the EU AI Act (European Union, 2024). The habits I developed here are the ones such systems demand: testing on unseen data, reporting results by subgroup, explaining predictions and stating limitations openly. I will document my models and data with model cards and datasheets (Mitchell et al., 2019; Gebru et al., 2021), so that decision-makers can see where a model can and cannot be trusted, as our Airbnb price-band analysis began to do.</p>
+            <p>The Unit 6 feedback also stays with me. A model has value only when its results inform a business decision, so I will lead with the business question and use technical detail to support it, not replace it. I acted on this in Unit 11 by grounding my recommendation in a specific use case and the cost of each type of error.</p>
+            <p>For teamwork, I will agree roles and a contribution log at the first meeting, record decisions and actions, and raise imbalances early and openly rather than absorbing them. My professional development plan sets out these actions alongside technical goals: explainability for tabular financial data and validation methods for time-dependent data.</p>
+            <p>This module showed me that competence in machine learning lies less in building models than in questioning them, and that the same honesty applies to how I work with others.</p>
         </div>
+
     </div>
 </div>
 
 <div class="unit-section" id="reflections-during">
     <h2>Reflections During the Module</h2>
     <div class="unit-content">
-
         <div class="analysis-section">
-            <h4>Ongoing Reflections</h4>
-            <p class="placeholder">Short reflections written as the module progressed, which fed into the final reflection.</p>
+            <p>As the module progressed I wrote a short What? So what? Now what? reflection for each unit, which fed into the final reflection above. They are on the Learning Artefacts page:</p>
+            <ul class="unit-link-list">
+                <li><a href="artefacts.html#unit-1">Unit 1</a></li>
+                <li><a href="artefacts.html#unit-2">Unit 2</a></li>
+                <li><a href="artefacts.html#unit-3">Unit 3</a></li>
+                <li><a href="artefacts.html#unit-4">Unit 4</a></li>
+                <li><a href="artefacts.html#unit-5">Unit 5</a></li>
+                <li><a href="artefacts.html#unit-6">Unit 6</a></li>
+                <li><a href="artefacts.html#unit-7">Unit 7</a></li>
+                <li><a href="artefacts.html#unit-8">Unit 8</a></li>
+                <li><a href="artefacts.html#unit-9">Unit 9</a></li>
+                <li><a href="artefacts.html#unit-10">Unit 10</a></li>
+                <li><a href="artefacts.html#unit-11">Unit 11</a></li>
+            </ul>
         </div>
     </div>
 </div>
@@ -133,7 +151,19 @@
 <div class="unit-section" id="reflection-references">
     <h2>References</h2>
     <div class="unit-content">
-        <p class="placeholder">The sources cited in this reflection, in Harvard style.</p>
+        <ul class="reference-list">
+            <li>Chen, T. and Guestrin, C. (2016) 'XGBoost: a scalable tree boosting system', in <em>Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining</em>. San Francisco, CA, 13–17 August. New York: Association for Computing Machinery, pp. 785–794.</li>
+            <li>Domingos, P. (2012) 'A few useful things to know about machine learning', <em>Communications of the ACM</em>, 55(10), pp. 78–87. doi: 10.1145/2347736.2347755.</li>
+            <li>European Union (2024) Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act). <em>Official Journal of the European Union</em>. Available at: https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng (Accessed: 18 October 2026).</li>
+            <li>Gebru, T., Morgenstern, J., Vecchione, B., Vaughan, J.W., Wallach, H., Daumé III, H. and Crawford, K. (2021) 'Datasheets for datasets', <em>Communications of the ACM</em>, 64(12), pp. 86–92. doi: 10.1145/3458723.</li>
+            <li>Hinds, P.J. and Bailey, D.E. (2003) 'Out of sight, out of sync: understanding conflict in distributed teams', <em>Organization Science</em>, 14(6), pp. 615–632. doi: 10.1287/orsc.14.6.615.24872.</li>
+            <li>Krizhevsky, A. (2009) <em>Learning multiple layers of features from tiny images</em>. Technical report. Toronto: University of Toronto. Available at: https://www.cs.toronto.edu/~kriz/cifar.html (Accessed: 10 October 2026).</li>
+            <li>Latané, B., Williams, K. and Harkins, S. (1979) 'Many hands make light the work: the causes and consequences of social loafing', <em>Journal of Personality and Social Psychology</em>, 37(6), pp. 822–832. doi: 10.1037/0022-3514.37.6.822.</li>
+            <li>Mitchell, M., Wu, S., Zaldivar, A., Barnes, P., Vasserman, L., Hutchinson, B., Spitzer, E., Raji, I.D. and Gebru, T. (2019) 'Model cards for model reporting', in <em>Proceedings of the Conference on Fairness, Accountability, and Transparency (FAT* '19)</em>. New York: Association for Computing Machinery, pp. 220–229. doi: 10.1145/3287560.3287596.</li>
+            <li>Ribeiro, M.T., Singh, S. and Guestrin, C. (2016) '"Why should I trust you?": explaining the predictions of any classifier', in <em>Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining</em>. San Francisco, CA: ACM, pp. 1135–1144.</li>
+            <li>Rolfe, G., Freshwater, D. and Jasper, M. (2001) <em>Critical reflection in nursing and the helping professions: a user's guide</em>. Basingstoke: Palgrave Macmillan.</li>
+            <li>Tuckman, B.W. (1965) 'Developmental sequence in small groups', <em>Psychological Bulletin</em>, 63(6), pp. 384–399. doi: 10.1037/h0022100.</li>
+        </ul>
     </div>
 </div>
 

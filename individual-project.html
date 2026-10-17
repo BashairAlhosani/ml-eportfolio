@@ -180,28 +180,48 @@
     <h2><span class="unit-weeks">Unit 6 &rarr; Unit 11</span>Final Project vs. Initial Proposal</h2>
     <div class="unit-content">
         <div class="analysis-section">
-            <h4>What Was Proposed</h4>
-            <p>The Unit 6 team project (Group 5) was a classical machine learning analysis of New York Airbnb listings: regression to predict price and k-means to segment supply. The tutor praised its clear method and model comparison, but found that it focused heavily on technical evaluation, gave limited rationale for the techniques chosen, described its segments rather than validating them, and lacked critical discussion of model limitations.</p>
+            <h4>What was proposed: the Unit 6 team project</h4>
+            <p>The Unit 6 team project (Group 5) was a classical machine learning analysis of the New York City Airbnb Open Data (Dgomonov, 2019). After cleaning, 48,870 listings were used to answer two questions: what drives listing price, and which supply segments Airbnb should prioritise. Linear regression, random forest (Breiman, 2001) and XGBoost (Chen and Guestrin, 2016) were compared on an 80/20 split with three-fold grid search, and k-means identified four supply segments. Tuned XGBoost performed best (R² = 0.623), but an error analysis by price band showed that the model was reliable only for listings priced between $51 and $200. The report recommended a scoped price-alert pilot for that band.</p>
+            <p>The tutor praised the clear business question, methodology, model comparison and visualisations. The feedback also identified seven weaknesses, which are the yardstick for this evaluation:</p>
+            <ol><li>the team members were not identified;</li> <li>the focus was too heavily technical, with too little interpretation for the business question;</li> <li>the rationale for the chosen techniques was limited;</li> <li>the four segments were described rather than examined in depth;</li> <li>conclusions lacked critical discussion of model limitations and assumptions;</li> <li>the recommendation was narrow, centred on a single pricing tool;</li> <li>too much of the submission was code rather than insight.</li></ol>
         </div>
 
         <div class="analysis-section">
-            <h4>What Was Delivered</h4>
-            <p>The Unit 11 project compared a classical and a deep learning model on CIFAR-10, adding cross-validation, explainability, a subgroup bias analysis, an ethical analysis of a specific use case and a deployment design. An early version of my notebook contained only the deep learning models; the classical model, explainability, bias analysis, ethics and deployment sections were added as the project developed.</p>
+            <h4>What was delivered: the Unit 11 individual project</h4>
+            <p>The Unit 11 project, <em>Comparative Intelligence and Ethics in Machine Learning Systems</em>, compared a classical model (HOG and colour features, PCA and an RBF-kernel SVM) with a three-block VGG-style CNN on CIFAR-10 (Krizhevsky, 2009). It used identical data splits, stratified five-fold cross-validation for the SVM, LIME (Ribeiro, Singh and Guestrin, 2016), Grad-CAM (Selvaraju et al., 2017) and permutation importance, a subgroup bias analysis, an ethical analysis of a realistic use case and a deployment design. It was delivered as a 20-minute recorded presentation with a transcript and a documented notebook. The CNN reached 87.7% test accuracy against 64.4% for the SVM, but the analysis showed that the CNN loses 26 points at a quarter of normal brightness while the SVM loses about 3.</p>
         </div>
 
         <div class="analysis-section">
-            <h4>What Changed and Why</h4>
-            <ul>
-                <li><strong>Justification of choices:</strong> each decision was supported, with six reasons for the dataset, a benchmark for the classical model and ablation runs for the CNN design, answering the tutor&rsquo;s point about limited rationale.</li>
-                <li><strong>Validation over description:</strong> where the Airbnb segments were described by their averages, the Unit 11 results were tested with cross-validation, confidence intervals and significance tests across subgroups.</li>
-                <li><strong>Critical discussion of limitations:</strong> the project reported its own weaknesses, including the hold-out validation, test-set model selection and the small LIME sample.</li>
-                <li><strong>Broader recommendation:</strong> instead of a single pricing tool, the recommendation set out conditions for deployment, monitoring and retraining.</li>
-            </ul>
+            <h4>How the feedback was addressed</h4>
+            <div class="table-wrapper">
+                <table class="portfolio-table">
+                    <thead><tr><th>Unit 6 feedback</th><th>Unit 6 (team report)</th><th>Unit 11 (individual project)</th><th>Assessment</th></tr></thead>
+                    <tbody>
+                        <tr><td>1. Team members not identified</td><td>No member names or contributions.</td><td>Individual work, presenter named on the title slide and transcript.</td><td>Not tested in a team setting; addressed for future teams in my PDP (contribution log).</td></tr>
+                        <tr><td>2. Too technical, weak business interpretation</td><td>Metrics dominated; the business case was brief.</td><td>Ethics and recommendation grounded in one use case (a roadside wildlife camera); errors weighed by real-world cost (a missed deer versus a false alarm).</td><td>Improved: the results drive a decision.</td></tr>
+                        <tr><td>3. Limited rationale for techniques</td><td>Methods stated, rarely justified.</td><td>Dataset choice justified; RBF-SVM chosen after a benchmark in which it beat a linear SVM and a random forest by about ten points; CNN design justified by one-factor-at-a-time experiments; tool choices explained.</td><td>Clearly improved.</td></tr>
+                        <tr><td>4. Descriptive segments</td><td>Segments profiled by averages only.</td><td>Findings tested: cross-validation with fold spread, subgroup accuracy with confidence intervals, and a controlled brightness experiment to separate cause from confounding.</td><td>Clearly improved: claims were tested, not described.</td></tr>
+                        <tr><td>5. Limitations not discussed critically</td><td>Data limitations noted; model assumptions largely unexamined.</td><td>Own weaknesses reported: hold-out validation for the CNN, design variants ranked on test accuracy, LIME on only six images, and subgroups confounded with class.</td><td>Improved.</td></tr>
+                        <tr><td>6. Narrow recommendation</td><td>A single price-alert pilot.</td><td>CNN recommended only with safeguards (low-light retraining, high-recall thresholds, human review of low-confidence cases, subgroup monitoring) and an on-device deployment with a cloud retraining loop.</td><td>Improved: broader and conditional.</td></tr>
+                        <tr><td>7. Too much code</td><td>Long code appendix in the report.</td><td>Slides prioritised visuals; code kept in a separate, documented notebook.</td><td>Addressed.</td></tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <div class="analysis-section">
-            <h4>Lessons Learned</h4>
-            <p>Comparing the two projects showed me that technical accuracy is only part of a good machine learning project. The Unit 6 feedback taught me to justify each choice, validate rather than describe, and be open about limitations, and the Unit 11 project is where I applied those lessons.</p>
+            <h4>Continuity between the two projects</h4>
+            <p>The two projects differ in dataset and task, but the most valuable idea in Unit 11 grew directly out of Unit 6. The Airbnb price-band analysis showed that an acceptable overall R² hid a model that was unreliable for budget and luxury listings. Unit 11 applied the same principle, disaggregating before trusting, to image conditions, where it uncovered the CNN's low-light weakness. Fixing the snapshot date to avoid leakage in Unit 6 likewise became, in Unit 11, a single split shared by both models and a test set kept out of every training decision.</p>
+        </div>
+
+        <div class="analysis-section">
+            <h4>What did not improve enough</h4>
+            <ul><li><strong>Validation was uneven.</strong> The SVM was cross-validated, but the CNN used one hold-out set because of GPU cost, and its design variants were compared on test accuracy rather than validation accuracy.</li> <li><strong>Explainability sample.</strong> LIME was applied to six images, which illustrates behaviour rather than proving it; Grad-CAM was averaged over 1,000 images, which is stronger.</li> <li><strong>Transfer learning.</strong> The EfficientNetB0 reference underfitted (about 57%) after upscaling and only 20 epochs, so the comparison with pre-trained models is incomplete.</li> <li><strong>Collaboration.</strong> The Unit 6 problem of uneven participation could not be tested in an individual project. It remains a development goal rather than a demonstrated improvement.</li></ul>
+        </div>
+
+        <div class="analysis-section">
+            <h4>Lessons learned</h4>
+            <p>Comparing the two projects shows that the main change was not in technique but in judgement. In Unit 6 the question was "which model scores highest?"; in Unit 11 it became "where does each model fail, who is affected, and under what conditions can it be deployed?" The tutor's feedback was the turning point: justifying each choice, testing claims instead of describing them, and stating limitations openly made the Unit 11 work more credible. In my own field, business and finance, I will carry forward the same discipline, together with the business framing that the Unit 6 feedback asked for.</p>
         </div>
     </div>
 </div>
