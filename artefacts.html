@@ -490,58 +490,132 @@
 
 <!-- Unit 8 -->
 <div class="unit-section" id="unit-8">
-    <h2><span class="unit-weeks">Unit 8</span>Unit title</h2>
+    <h2><span class="unit-weeks">Unit 8</span>Training an Artificial Neural Network</h2>
     <div class="unit-content">
         <div class="lo-row">
             <span class="lo-label">Learning outcomes</span>
-            <span class="placeholder-inline">To be mapped</span>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO1: Legal, social, ethical and professional issues faced by machine learning professionals">LO1</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO2: Applicability and challenges of different datasets for machine learning">LO2</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO3: Applying and critically appraising machine learning techniques where technical risk and uncertainty are involved">LO3</a>
         </div>
         <div class="topic-box">
             <p class="topic-label">Unit Focus</p>
-            <p class="placeholder">The unit topic and its learning outcomes.</p>
+            <p>How a neural network learns from its errors: gradient descent and backpropagation, how they adjust the connection weights, and how ANNs are applied in real life.</p>
         </div>
 
         <div class="analysis-section">
             <h4>Key Learning</h4>
-            <p class="placeholder">The main concepts from this unit, in my own words.</p>
+            <p>Backpropagation works out how much each weight contributed to the error, and gradient descent uses that to take a step downhill, with the learning rate setting the size of the step (G&eacute;ron, 2025). The gradient descent activity made this trade-off precise. Fitting a straight line, a learning rate of 0.001 still had not converged after 10,000 iterations, while 0.09 diverged however many iterations were run. From the curvature of the cost surface I calculated a stability limit of 0.0845, which matched the experiments exactly; the fastest setting, 0.08, sat just below it and reached the target error in 168 iterations.</p>
         </div>
 
         <div class="analysis-section">
             <h4>Activities &amp; Contributions</h4>
-            <p class="placeholder">Wiki posts, e-portfolio activities, discussion posts and exercises completed in this unit.</p>
+            <h5>Collaborative Discussion 2: Initial Post</h5>
+            <p>Drawing on Hutson (2021), I argued that the risks of AI writers depend on the cost of an error and how easily a human can check the output. Administrative writing benefits most: in Noy and Zhang&rsquo;s (2023) experiment, AI assistance cut writing time by 40% and raised quality by 18%. Professional and technical writing is riskier, since ChatGPT fabricated 55% of references with GPT-3.5 and 18% with GPT-4 (Walters and Wilder, 2023), and GPT-3 persistently associated Muslims with violence (Abid, Farooqi and Zou, 2021). In creative writing, AI ideas made individual stories more creative but more similar to each other (Doshi and Hauser, 2024).</p>
+            <div class="highlight-box">
+                <p>&ldquo;A fabricated citation reads exactly like a real one, so fluency itself becomes a risk.&rdquo;</p>
+            </div>
+
+            <h5>Seminar Task 3: building a recommender system</h5>
+            <p>I repaired and ran a matrix factorisation recommender on the MovieLens 100K dataset (Harper and Konstan, 2015): 100,000 ratings from 943 users on 1,682 films, with 93.7% of possible ratings missing. Using a time-aware split, the full model overfitted: training error fell from 0.96 to 0.55 while validation error rose above a simple baseline of user and film averages after epoch 5. Stronger regularisation gave the best result:</p>
+            <div class="table-wrapper">
+                <table class="portfolio-table">
+                    <thead><tr><th>Model</th><th>Test RMSE</th></tr></thead>
+                    <tbody>
+                        <tr><td>Global average rating</td><td>1.140</td></tr>
+                        <tr><td>User and film averages (baseline)</td><td>1.045</td></tr>
+                        <tr><td>Matrix factorisation, as provided</td><td>1.040</td></tr>
+                        <tr><td>Matrix factorisation, stronger regularisation</td><td>1.023</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Two dataset problems stood out. 58% of test users had no training history (the cold-start problem), and recommended films had a median of 148 ratings against 23 for a typical film, so the model favoured titles that were already popular. SHAP explanations made the user and film effects understandable, but could not put the model&rsquo;s hidden factors into words.</p>
+            <p class="skills-note">Popularity bias shapes which films and creators get seen, and new users receive the weakest recommendations (LO1, LO2).</p>
+        </div>
+
+        <div class="figure-grid">
+            <figure class="evidence-figure">
+                <a href="evidence/unit-8-gradient-descent-paths.png" target="_blank" rel="noopener"><img src="evidence/unit-8-gradient-descent-paths.png" alt="Gradient descent paths for three learning rates on a contour plot" loading="lazy" /></a>
+                <figcaption>Gradient descent paths: 0.01 is slow, 0.08 zig-zags to the minimum, 0.09 diverges.</figcaption>
+            </figure>
+            <figure class="evidence-figure">
+                <a href="evidence/unit-8-recommender-overfitting.png" target="_blank" rel="noopener"><img src="evidence/unit-8-recommender-overfitting.png" alt="Training and validation error of the recommender over 30 epochs" loading="lazy" /></a>
+                <figcaption>Recommender overfitting: training error keeps falling while validation error rises above the baseline.</figcaption>
+            </figure>
+        </div>
+
+        <div class="metadata-row">
+            <span class="meta-item"><strong>Skills applied:</strong> Optimisation, model evaluation, explainability, academic writing</span>
+            <span class="meta-item"><strong>Tools:</strong> Jupyter Notebook, NumPy, pandas, SHAP, matplotlib</span>
         </div>
 
         <div class="evidence-links">
-            <p class="placeholder">Evidence screenshots and files.</p>
+            <a href="evidence/unit-8-gradient-descent.html" class="evidence-btn" target="_blank" rel="noopener">Gradient Descent Notebook</a>
+            <a href="evidence/unit-8-recommender-system.html" class="evidence-btn" target="_blank" rel="noopener">Recommender System Notebook</a>
+            <a href="evidence/unit-8-discussion-2-initial-post.png" class="evidence-btn" target="_blank" rel="noopener">Discussion 2 Initial Post</a>
+            <a href="evidence/unit-8-gradient-descent-cost-curves.png" class="evidence-btn" target="_blank" rel="noopener">Cost Curves Chart</a>
         </div>
     </div>
 </div>
 
 <!-- Unit 9 -->
 <div class="unit-section" id="unit-9">
-    <h2><span class="unit-weeks">Unit 9</span>Unit title</h2>
+    <h2><span class="unit-weeks">Unit 9</span>Introduction to Convolutional Neural Networks</h2>
     <div class="unit-content">
         <div class="lo-row">
             <span class="lo-label">Learning outcomes</span>
-            <span class="placeholder-inline">To be mapped</span>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO1: Legal, social, ethical and professional issues faced by machine learning professionals">LO1</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO2: Applicability and challenges of different datasets for machine learning">LO2</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO3: Applying and critically appraising machine learning techniques where technical risk and uncertainty are involved">LO3</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO4: Skills to be an effective member of a development team in a virtual professional environment">LO4</a>
         </div>
         <div class="topic-box">
             <p class="topic-label">Unit Focus</p>
-            <p class="placeholder">The unit topic and its learning outcomes.</p>
+            <p>The algorithm behind convolutional neural networks (CNNs), the Python libraries used to build them, and their real-world applications in computer vision.</p>
         </div>
 
         <div class="analysis-section">
             <h4>Key Learning</h4>
-            <p class="placeholder">The main concepts from this unit, in my own words.</p>
+            <p>A CNN learns its own filters to detect features such as edges and shapes, condenses them by pooling, and then classifies the flattened result (G&eacute;ron, 2025). Running a CNN on the CIFAR-10 images (Krizhevsky, 2009) showed how uneven its performance is beneath a single headline number. Test accuracy was 64.6%, against 10% for guessing, but recall ranged from 86% for cars to 42% for cats, and dogs were mistaken for cats 188 times. Training accuracy kept rising while validation accuracy levelled off at around 64%, a sign that the model was starting to overfit, which early stopping caught after five epochs.</p>
         </div>
 
         <div class="analysis-section">
             <h4>Activities &amp; Contributions</h4>
-            <p class="placeholder">Wiki posts, e-portfolio activities, discussion posts and exercises completed in this unit.</p>
+            <h5>E-portfolio activity: CNN object recognition</h5>
+            <p>I updated the notebook for Keras 3 and, rather than testing a single image as asked, tested images 1&ndash;16: 13 were classified correctly. Confidence was a poor guide, as 256 wrong predictions were made with over 90% confidence. Mirroring the test images changed almost a third of individual predictions (29.4%) while overall accuracy barely moved (63.4%), and two runs with fixed seeds gave 63.3% and 64.6%, so results like these should be reported as a range.</p>
+            <p class="skills-note">These are the weaknesses Wall (2019) describes in facial recognition: uneven accuracy across groups, confident mistakes and fragility to small changes. In that setting they affect real people (LO1).</p>
+
+            <h5>Collaborative Discussion 2: Peer Responses</h5>
+            <p><strong>To Essa:</strong> oversight should depend on the task, not only on its importance. Dell&rsquo;Acqua et al. (2023) found that consultants using GPT-4 were 19 percentage points less likely to be correct on a task just beyond the model&rsquo;s capabilities, and generic &ldquo;AI-generated&rdquo; labels can reduce trust even in true headlines (Altay and Gilardi, 2024).</p>
+            <p><strong>To Jeroen:</strong> human error sits within institutions of training, licensing and accountability that learning systems lack (Matthias, 2004), and AI errors are correlated rather than independent (Kleinberg and Raghavan, 2021).</p>
+            <div class="highlight-box">
+                <p>&ldquo;One doctor&rsquo;s mistake affects one patient, but a flaw in one model repeats across every user at once.&rdquo;</p>
+            </div>
+            <p><strong>To Agnieszka:</strong> after Samsung engineers uploaded source code to ChatGPT, the company banned generative AI (Bloomberg News, 2023). I argued that an approved enterprise tool with data-loss-prevention filters works better than a ban, and that reviewers should check the output itself, because a model&rsquo;s visible reasoning can misrepresent what drives its answer (Turpin et al., 2023).</p>
+            <p class="skills-note">The CNN work addresses LO2 and LO3; the peer responses address LO1 and LO4 by building on classmates&rsquo; arguments and ending with questions for discussion.</p>
+        </div>
+
+        <div class="figure-grid figure-grid--stacked">
+            <figure class="evidence-figure">
+                <a href="evidence/unit-9-cnn-confusion-matrix.png" target="_blank" rel="noopener"><img src="evidence/unit-9-cnn-confusion-matrix.png" alt="Confusion matrix and per-class accuracy of the CIFAR-10 CNN" loading="lazy" /></a>
+                <figcaption>Confusion matrix: accuracy ranges from 86% for cars to 42% for cats.</figcaption>
+            </figure>
+            <figure class="evidence-figure">
+                <a href="evidence/unit-9-cnn-test-images.png" target="_blank" rel="noopener"><img src="evidence/unit-9-cnn-test-images.png" alt="Test images 1 to 16 with predicted and true labels" loading="lazy" /></a>
+                <figcaption>Test images 1&ndash;16: 13 correct, with confidence shown for each prediction.</figcaption>
+            </figure>
+        </div>
+
+        <div class="metadata-row">
+            <span class="meta-item"><strong>Skills applied:</strong> Deep learning, model evaluation, robustness testing, ethical awareness</span>
+            <span class="meta-item"><strong>Tools:</strong> Jupyter Notebook, TensorFlow/Keras, scikit-learn, seaborn</span>
         </div>
 
         <div class="evidence-links">
-            <p class="placeholder">Evidence screenshots and files.</p>
+            <a href="evidence/unit-9-cnn-object-recognition.html" class="evidence-btn" target="_blank" rel="noopener">CNN Notebook</a>
+            <a href="evidence/unit-9-peer-response-essa.png" class="evidence-btn" target="_blank" rel="noopener">Response to Essa</a>
+            <a href="evidence/unit-9-peer-response-jeroen.png" class="evidence-btn" target="_blank" rel="noopener">Response to Jeroen</a>
+            <a href="evidence/unit-9-peer-response-agnieszka.png" class="evidence-btn" target="_blank" rel="noopener">Response to Agnieszka</a>
         </div>
     </div>
 </div>
