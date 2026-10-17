@@ -452,6 +452,35 @@ a.lo-tag:hover {
 	margin: 1em 0;
 }
 
+/* Per-unit reflection (Rolfe et al., 2001) */
+
+.reflection-box {
+	background: var(--tint);
+	border-left: 4px solid var(--accent);
+	border-radius: 0 8px 8px 0;
+	margin: 30px 0;
+	padding: 20px 24px;
+}
+
+.reflection-box h4 {
+	color: var(--accent);
+	margin: 0 0 10px 0;
+}
+
+.reflection-box p {
+	color: var(--ink) !important;
+	line-height: 1.75;
+	margin: 0 0 0.6em 0;
+}
+
+.reflection-box p:last-child {
+	margin-bottom: 0;
+}
+
+.reflection-box strong {
+	color: var(--accent-dark);
+}
+
 /* Two evidence images side by side */
 
 .figure-grid {

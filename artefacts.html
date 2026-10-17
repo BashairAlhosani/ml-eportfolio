@@ -113,6 +113,13 @@
             <p class="skills-note">This post addresses LO1 through the regulatory, consumer-protection and human consequences of the failure, and LO3 through the technical risk created by an outdated system. The discussion continues in Units 2 and 3 with peer responses and a summary post.</p>
         </div>
 
+        <div class="reflection-box">
+            <h4>Reflection</h4>
+            <p><strong>What?</strong> I wrote my first discussion post, applying Industry 4.0 and 5.0 to the Southwest Airlines collapse.</p>
+            <p><strong>So what?</strong> Researching the case showed me that large technical failures often come from decisions about investment and priorities rather than from the technology itself. That changed how I read the unit&rsquo;s material on the pitfalls of machine learning: a model is only as reliable as the data and systems around it.</p>
+            <p><strong>Now what?</strong> In later units I tried to check the data and the surrounding process before trusting a result, and to ask who is affected when a system fails.</p>
+        </div>
+
         <figure class="evidence-figure">
             <a href="evidence/unit-1-discussion-1-initial-post.png" target="_blank" rel="noopener"><img src="evidence/unit-1-discussion-1-initial-post.png" alt="Screenshot of my Collaborative Discussion 1 initial post on the Southwest Airlines case" loading="lazy" /></a>
             <figcaption>Collaborative Discussion 1 initial post. Select the image to view it full size.</figcaption>
@@ -163,6 +170,13 @@
                 <p>&ldquo;This points to a governance gap as much as a technical one: centrally enforced patching deadlines and compliance monitoring could have stopped the infection before it started.&rdquo;</p>
             </div>
             <p class="skills-note">The peer responses address LO1 through the regulation and governance of critical systems, and LO4 by building on classmates&rsquo; cases and ending with questions for discussion. The EDA work addresses LO2.</p>
+        </div>
+
+        <div class="reflection-box">
+            <h4>Reflection</h4>
+            <p><strong>What?</strong> I carried out my first full exploratory data analysis and replied to two peers&rsquo; cases.</p>
+            <p><strong>So what?</strong> Finding six &lsquo;?&rsquo; values that a standard check had missed showed me I had been trusting tools&rsquo; defaults too readily. The Rogers and WannaCry discussions made the same point at a larger scale: failures usually grow from assumptions nobody checked.</p>
+            <p><strong>Now what?</strong> I now check data types, codes and category spellings before any modelling, and I record cleaning choices, such as group-median imputation, so that others can challenge them.</p>
         </div>
 
         <div class="figure-grid">
@@ -231,6 +245,13 @@
             <p class="skills-note">The experiments address LO2 and LO3 (outliers, leverage, small samples, extrapolation and overfitting); the discussion posts address LO1 and LO4.</p>
         </div>
 
+        <div class="reflection-box">
+            <h4>Reflection</h4>
+            <p><strong>What?</strong> I ran the four regression notebooks and changed the data deliberately to see what broke.</p>
+            <p><strong>So what?</strong> Watching one point create a &ldquo;strong&rdquo; correlation, and a degree-10 model predict a speed of 484 at midnight, showed me that a good-looking metric can be completely misleading. It made me more sceptical of single numbers such as R&sup2;, which I had previously taken at face value.</p>
+            <p><strong>Now what?</strong> I now plot the data first, test on unseen points, and state the range a model was trained on whenever I report a prediction.</p>
+        </div>
+
         <div class="figure-grid">
             <figure class="evidence-figure">
                 <a href="evidence/unit-3-polynomial-degrees.png" target="_blank" rel="noopener"><img src="evidence/unit-3-polynomial-degrees.png" alt="Polynomial fits of different degrees and their cross-validation error" loading="lazy" /></a>
@@ -295,6 +316,13 @@
             <p class="skills-note">The missing data was not random: it mostly affected small territories and countries in conflict, such as Somalia and South Sudan. Dropping them leaves out exactly the countries a global analysis should not ignore, so this limitation needs to be reported openly (LO1, LO2).</p>
         </div>
 
+        <div class="reflection-box">
+            <h4>Reflection</h4>
+            <p><strong>What?</strong> I prepared World Bank data for a regression and debugged the fuel consumption demo.</p>
+            <p><strong>So what?</strong> The R&sup2; of &minus;18.82 taught me that an absurd result is usually a sign of a bug rather than a finding, and that provided code deserves the same checking as my own. Deciding which countries to exclude also showed me that cleaning choices are ethical choices, because they decide whose data counts.</p>
+            <p><strong>Now what?</strong> I fix random seeds, compare models against simple baselines, and report excluded data openly.</p>
+        </div>
+
         <div class="figure-grid">
             <figure class="evidence-figure">
                 <a href="evidence/unit-4-population-gdp-scatter.png" target="_blank" rel="noopener"><img src="evidence/unit-4-population-gdp-scatter.png" alt="Scatter plots of population against GDP per capita on linear and log scales" loading="lazy" /></a>
@@ -346,6 +374,13 @@
 
             <h5>K-means step by step</h5>
             <p>I implemented k-means from scratch and checked it against scikit-learn. With four groups and one outlier, two of five starting positions failed to find the groups, and in one of them the outlier captured a whole centroid. Repeating each strategy 200 times, a single random start found the true groups 82% of the time, a single k-means++ start 97% (Arthur and Vassilvitskii, 2007), and the best of ten starts 100%.</p>
+        </div>
+
+        <div class="reflection-box">
+            <h4>Reflection</h4>
+            <p><strong>What?</strong> I calculated Jaccard distances by hand and rebuilt k-means from scratch to reproduce the unit&rsquo;s animations.</p>
+            <p><strong>So what?</strong> Seeing k-means produce four neat clusters on random data was a turning point: the algorithm always gives an answer, so judging whether that answer means anything is my responsibility. The undefined &lsquo;A&rsquo; code showed how much a conclusion can rest on an unstated assumption.</p>
+            <p><strong>Now what?</strong> I validate clusters with several starts and silhouette scores, and I look for a data dictionary before encoding any data.</p>
         </div>
 
         <div class="figure-grid">
@@ -406,6 +441,13 @@
             <p>These tasks connected directly to the tutor&rsquo;s feedback on our team project, which described our four Airbnb segments as &ldquo;relatively descriptive&rdquo;. They showed me that a segment should be presented with evidence that it is stable and meaningful. The team project itself is documented on the <a href="team-project.html">Team Project</a> page.</p>
         </div>
 
+        <div class="reflection-box">
+            <h4>Reflection</h4>
+            <p><strong>What?</strong> I applied k-means to three datasets and reviewed the provided customer segmentation code.</p>
+            <p><strong>So what?</strong> Coming soon after our team&rsquo;s feedback that our Airbnb segments were &ldquo;relatively descriptive&rdquo;, this unit showed me what had been missing: evidence that segments are stable and meaningful. Finding the scaling bug also showed that a higher silhouette score can reward the wrong segmentation.</p>
+            <p><strong>Now what?</strong> I will present clusters with validation evidence and a check against domain knowledge, not only their average values.</p>
+        </div>
+
         <div class="figure-grid">
             <figure class="evidence-figure">
                 <a href="evidence/unit-6-wine-scaling.png" target="_blank" rel="noopener"><img src="evidence/unit-6-wine-scaling.png" alt="Wine data: real classes, raw k-means and standardised k-means" loading="lazy" /></a>
@@ -461,6 +503,13 @@
                     <tbody><tr><td>Runs that solved XOR (of 10)</td><td>0</td><td>3</td><td>9</td><td>10</td><td>10</td></tr></tbody>
                 </table>
             </div>
+        </div>
+
+        <div class="reflection-box">
+            <h4>Reflection</h4>
+            <p><strong>What?</strong> I ran and extended the three perceptron notebooks.</p>
+            <p><strong>So what?</strong> Seeing a single perceptron fail at XOR, and a multi-layer network get stuck from one random start, made the link between the shape of the data and the choice of model concrete. Fixing a variable that only existed in the author&rsquo;s session reminded me that reproducibility is part of professional practice.</p>
+            <p><strong>Now what?</strong> I run notebooks from a fresh start before sharing them, and I report results across several random starts rather than one.</p>
         </div>
 
         <div class="figure-grid">
@@ -533,6 +582,13 @@
             <p class="skills-note">Popularity bias shapes which films and creators get seen, and new users receive the weakest recommendations (LO1, LO2).</p>
         </div>
 
+        <div class="reflection-box">
+            <h4>Reflection</h4>
+            <p><strong>What?</strong> I experimented with learning rates, built a recommender system and wrote my second discussion post.</p>
+            <p><strong>So what?</strong> Calculating the stability limit and seeing it match the experiments showed me that the theory really does explain the behaviour. The recommender showed that a more complex model is not automatically better: it overfitted and favoured popular films, which raises fairness questions for new users and lesser-known creators.</p>
+            <p><strong>Now what?</strong> I compare every model with a simple baseline, and I look at who bears the errors as well as how large they are.</p>
+        </div>
+
         <div class="figure-grid">
             <figure class="evidence-figure">
                 <a href="evidence/unit-8-gradient-descent-paths.png" target="_blank" rel="noopener"><img src="evidence/unit-8-gradient-descent-paths.png" alt="Gradient descent paths for three learning rates on a contour plot" loading="lazy" /></a>
@@ -595,6 +651,13 @@
             <p class="skills-note">The CNN work addresses LO2 and LO3; the peer responses address LO1 and LO4 by building on classmates&rsquo; arguments and ending with questions for discussion.</p>
         </div>
 
+        <div class="reflection-box">
+            <h4>Reflection</h4>
+            <p><strong>What?</strong> I evaluated a CNN on CIFAR-10 and replied to three peers on AI writing.</p>
+            <p><strong>So what?</strong> The gap between a 64.6% headline accuracy and 42% for cats, together with 256 confident mistakes, showed me why Wall&rsquo;s (2019) concerns about facial recognition are technical as well as ethical. The discussion helped me see that accountability, not perfect accuracy, is the real requirement for using these systems.</p>
+            <p><strong>Now what?</strong> I report per-class results, confidence and run-to-run variation, not just overall accuracy.</p>
+        </div>
+
         <div class="figure-grid figure-grid--stacked">
             <figure class="evidence-figure">
                 <a href="evidence/unit-9-cnn-confusion-matrix.png" target="_blank" rel="noopener"><img src="evidence/unit-9-cnn-confusion-matrix.png" alt="Confusion matrix and per-class accuracy of the CIFAR-10 CNN" loading="lazy" /></a>
@@ -622,66 +685,147 @@
 
 <!-- Unit 10 -->
 <div class="unit-section" id="unit-10">
-    <h2><span class="unit-weeks">Unit 10</span>Unit title</h2>
+    <h2><span class="unit-weeks">Unit 10</span>Natural Language Processing</h2>
     <div class="unit-content">
         <div class="lo-row">
             <span class="lo-label">Learning outcomes</span>
-            <span class="placeholder-inline">To be mapped</span>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO1: Legal, social, ethical and professional issues faced by machine learning professionals">LO1</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO2: Applicability and challenges of different datasets for machine learning">LO2</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO3: Applying and critically appraising machine learning techniques where technical risk and uncertainty are involved">LO3</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO4: Skills to be an effective member of a development team in a virtual professional environment">LO4</a>
         </div>
         <div class="topic-box">
             <p class="topic-label">Unit Focus</p>
-            <p class="placeholder">The unit topic and its learning outcomes.</p>
+            <p>How natural language processing moved from rule-based systems to deep learning, the Transformer models (such as BERT, GPT and T5) behind today&rsquo;s language tools, and how NLP models are evaluated. The unit&rsquo;s seminar continued the work on convolutional neural networks.</p>
         </div>
 
         <div class="analysis-section">
             <h4>Key Learning</h4>
-            <p class="placeholder">The main concepts from this unit, in my own words.</p>
+            <p>Language models generate fluent text by predicting likely words rather than checking facts, which is why the Discussion 2 cases kept returning to confident errors and verification. The seminar applied the same question to images. Looking inside a small CNN layer by layer in CNN Explainer (Wang et al., 2021), I could see each convolution shrink the image, ReLU remove negative values and pooling halve its size, until the early edge-like features became abstract patterns that were hard to interpret.</p>
         </div>
 
         <div class="analysis-section">
             <h4>Activities &amp; Contributions</h4>
-            <p class="placeholder">Wiki posts, e-portfolio activities, discussion posts and exercises completed in this unit.</p>
+            <h5>Collaborative Discussion 2: Summary Post</h5>
+            <p>Revisiting my initial framework, I set out three weaknesses the discussion exposed. My exchange with Essa showed that the type of writing is a poor guide to risk, because AI fails unpredictably just beyond its capabilities (Dell&rsquo;Acqua et al., 2023). Agnieszka&rsquo;s concern about confidential data showed I had overlooked the risk from inputs. And verification is harder than I assumed: a model&rsquo;s visible reasoning can be unfaithful (Turpin et al., 2023) and its errors repeat across users (Kleinberg and Raghavan, 2021). The answer is accountability structures, such as red teaming before release (Perez et al., 2022) and keeping humans as editors (Dietvorst, Simmons and Massey, 2018), rather than rejecting the tools.</p>
+            <div class="highlight-box">
+                <p>&ldquo;I would now assess AI writers on three dimensions for each task, rather than by type of writing: the cost of an error, the ease of verification and the sensitivity of inputs.&rdquo;</p>
+            </div>
+
+            <h5>Seminar: testing a CNN with my own images</h5>
+            <p>I tested CNN Explainer&rsquo;s small image classifier with five images similar to its ten training classes and two dissimilar ones:</p>
+            <div class="table-wrapper">
+                <table class="portfolio-table">
+                    <thead><tr><th>Image</th><th>Top prediction</th><th>Result</th></tr></thead>
+                    <tbody>
+                        <tr><td>Orange</td><td>orange (87.8%)</td><td>Correct</td></tr>
+                        <tr><td>Ferrari sports car</td><td>espresso (79.5%)</td><td>Wrong</td></tr>
+                        <tr><td>Family car</td><td>koala (86.9%)</td><td>Wrong</td></tr>
+                        <tr><td>Teacup</td><td>ladybug (56.8%)</td><td>Wrong</td></tr>
+                        <tr><td>Pizza</td><td>bell pepper (76.0%)</td><td>Wrong</td></tr>
+                        <tr><td>Kandinsky painting</td><td>koala (76.9%)</td><td>No correct class</td></tr>
+                        <tr><td>Chest X-ray</td><td>ladybug (53.0%)</td><td>No correct class</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Only one of the four images from classes the network was trained on was recognised; at 64&times;64 pixels it relies on colour and texture, so &ldquo;similar&rdquo; to a person is not similar to the network. The dissimilar images still received confident labels, because the output layer has no &ldquo;none of these&rdquo; option.</p>
+            <p class="skills-note">In medical imaging, a confident label for an input the model was never designed for could mislead clinicians, so models must be tested on data from the setting where they will be used (LO1, LO2).</p>
+        </div>
+
+        <div class="reflection-box">
+            <h4>Reflection</h4>
+            <p><strong>What?</strong> I wrote my Discussion 2 summary post and tested a CNN with my own images.</p>
+            <p><strong>So what?</strong> Writing the summary meant admitting that my initial framework had real gaps, which my peers&rsquo; cases exposed; revising it taught me more than defending it would have. Watching the network label a chest X-ray as a ladybug showed me that a model cannot say &ldquo;I don&rsquo;t know&rdquo; unless it is designed to.</p>
+            <p><strong>Now what?</strong> I treat peer challenge as a way to improve an argument, and before trusting a model I ask how it behaves on inputs outside its training data.</p>
+        </div>
+
+        <div class="figure-grid figure-grid--stacked">
+            <figure class="evidence-figure">
+                <a href="evidence/unit-10-cnn-explainer-chest-xray.jpg" target="_blank" rel="noopener"><img src="evidence/unit-10-cnn-explainer-chest-xray.jpg" alt="CNN Explainer showing feature maps for a chest X-ray" loading="lazy" /></a>
+                <figcaption>CNN Explainer labels a chest X-ray as &ldquo;ladybug&rdquo;. X-ray image: Mikael H&auml;ggstr&ouml;m, CC0, via Wikimedia Commons.</figcaption>
+            </figure>
+        </div>
+
+        <div class="metadata-row">
+            <span class="meta-item"><strong>Skills applied:</strong> Critical evaluation, peer collaboration, model testing, academic writing</span>
+            <span class="meta-item"><strong>Tools:</strong> CNN Explainer (browser), Moodle discussion forum</span>
         </div>
 
         <div class="evidence-links">
-            <p class="placeholder">Evidence screenshots and files.</p>
+            <a href="evidence/unit-10-discussion-2-summary-post.png" class="evidence-btn" target="_blank" rel="noopener">Discussion 2 Summary Post</a>
         </div>
     </div>
 </div>
 
 <!-- Unit 11 -->
 <div class="unit-section" id="unit-11">
-    <h2><span class="unit-weeks">Unit 11</span>Unit title</h2>
+    <h2><span class="unit-weeks">Unit 11</span>Model Selection and Evaluation</h2>
     <div class="unit-content">
         <div class="lo-row">
             <span class="lo-label">Learning outcomes</span>
-            <span class="placeholder-inline">To be mapped</span>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO1: Legal, social, ethical and professional issues faced by machine learning professionals">LO1</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO2: Applicability and challenges of different datasets for machine learning">LO2</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO3: Applying and critically appraising machine learning techniques where technical risk and uncertainty are involved">LO3</a>
         </div>
         <div class="topic-box">
             <p class="topic-label">Unit Focus</p>
-            <p class="placeholder">The unit topic and its learning outcomes.</p>
+            <p>Choosing, evaluating and deploying models: tuning hyperparameters, choosing metrics beyond accuracy, and MLOps principles for monitoring and retraining models in production.</p>
         </div>
 
         <div class="analysis-section">
             <h4>Key Learning</h4>
-            <p class="placeholder">The main concepts from this unit, in my own words.</p>
+            <p>No single metric is enough. In the provided notebook, a classification report showed 60% accuracy while one class had a precision of zero, and the breast cancer model&rsquo;s AUC of 0.995 was measured on its own training data, so it was optimistic. Regression metrics have their own traps: R&sup2; is not bounded below by zero (predictions worse than the average gave R&sup2; = &minus;1.04), and a single large error raised the RMSE far more than the MAE.</p>
         </div>
 
         <div class="analysis-section">
             <h4>Activities &amp; Contributions</h4>
-            <p class="placeholder">Wiki posts, e-portfolio activities, discussion posts and exercises completed in this unit.</p>
-            <p class="skills-note">The Unit 11 individual project is documented on the <a href="individual-project.html">Individual Project</a> page.</p>
+            <h5>E-portfolio activity: model performance measurement</h5>
+            <p>I fixed three problems in the provided notebook (an indentation error, a cell labelled RMSE that actually computed MSE, and a multiclass AUC call that newer versions of scikit-learn reject), then ran four experiments. Varying the regularisation strength of the breast cancer classifier, training AUC kept rising while test AUC peaked at C = 1, a sign of mild overfitting with weaker regularisation; five-fold cross-validation stayed steady and gave the more reliable estimate.</p>
+            <div class="table-wrapper">
+                <table class="portfolio-table">
+                    <thead><tr><th>Regularisation (C)</th><th>Training AUC</th><th>Test AUC</th><th>5-fold CV AUC</th></tr></thead>
+                    <tbody>
+                        <tr><td>0.01</td><td>0.985</td><td>0.979</td><td>0.981</td></tr>
+                        <tr><td>1</td><td>0.995</td><td>0.991</td><td>0.992</td></tr>
+                        <tr><td>100</td><td>0.997</td><td>0.987</td><td>0.992</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Adding random noise features to the iris data pulled the micro-average AUC from 0.94 to 0.67 at 2,000 features, but unevenly: setosa stayed near-perfect until 400 noise features, while versicolor was poor even with none. A single overall AUC hides this.</p>
+            <p class="skills-note">In a medical setting, training-data scores or a single overall number can make a model look safer than it is, so choosing metrics is an ethical as well as a technical decision (LO1).</p>
+
+            <h5>Individual project</h5>
+            <p>The Unit 11 individual presentation, comparing a classical and a deep learning model on CIFAR-10, is documented on the <a href="individual-project.html">Individual Project</a> page.</p>
+        </div>
+
+        <div class="reflection-box">
+            <h4>Reflection</h4>
+            <p><strong>What?</strong> I repaired and extended the model performance notebook alongside my individual project.</p>
+            <p><strong>So what?</strong> Seeing an AUC of 0.995 turn out to be a training-data score, and 60% accuracy hide a class the model never got right, showed me how easily evaluation can flatter a model. Metrics decide which errors are visible, so choosing them is a responsibility rather than a formality.</p>
+            <p><strong>Now what?</strong> I report results on unseen data or cross-validation, per class, and with metrics that reflect the cost of each kind of error.</p>
+        </div>
+
+        <div class="figure-grid figure-grid--stacked">
+            <figure class="evidence-figure">
+                <a href="evidence/unit-11-auc-vs-noise.png" target="_blank" rel="noopener"><img src="evidence/unit-11-auc-vs-noise.png" alt="AUC for each iris class as random noise features are added" loading="lazy" /></a>
+                <figcaption>AUC falls as irrelevant features drown out the real ones, at a different rate for each class.</figcaption>
+            </figure>
+        </div>
+
+        <div class="metadata-row">
+            <span class="meta-item"><strong>Skills applied:</strong> Model evaluation, debugging, experimentation, critical thinking</span>
+            <span class="meta-item"><strong>Tools:</strong> Jupyter Notebook, scikit-learn, matplotlib</span>
         </div>
 
         <div class="evidence-links">
-            <p class="placeholder">Evidence screenshots and files.</p>
+            <a href="evidence/unit-11-model-performance.html" class="evidence-btn" target="_blank" rel="noopener">Model Performance Notebook</a>
         </div>
     </div>
 </div>
 
 <!-- Unit 12 -->
 <div class="unit-section" id="unit-12">
-    <h2><span class="unit-weeks">Unit 12</span>Unit title</h2>
+    <h2><span class="unit-weeks">Unit 12</span>Industry 4.0 and Machine Learning</h2>
     <div class="unit-content">
         <div class="lo-row">
             <span class="lo-label">Learning outcomes</span>
@@ -689,7 +833,7 @@
         </div>
         <div class="topic-box">
             <p class="topic-label">Unit Focus</p>
-            <p class="placeholder">The unit topic and its learning outcomes.</p>
+            <p>The challenges and opportunities of Industry 4.0, emerging techniques such as self-supervised learning, Edge AI and neural architecture search, deploying machine learning in industry, and the shift towards Industry 5.0.</p>
         </div>
 
         <div class="analysis-section">
@@ -699,11 +843,11 @@
 
         <div class="analysis-section">
             <h4>Activities &amp; Contributions</h4>
-            <p class="placeholder">Wiki posts, e-portfolio activities, discussion posts and exercises completed in this unit.</p>
+            <p class="placeholder">My contribution to the Unit 12 seminar on the future of machine learning.</p>
         </div>
 
         <div class="evidence-links">
-            <p class="placeholder">Evidence screenshots and files.</p>
+            <p class="placeholder">Evidence of my seminar contribution.</p>
         </div>
     </div>
 </div>

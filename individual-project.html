@@ -71,21 +71,24 @@
     <div class="unit-content">
         <div class="lo-row">
             <span class="lo-label">Learning outcomes</span>
-            <span class="placeholder-inline">To be mapped</span>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO1: Legal, social, ethical and professional issues faced by machine learning professionals">LO1</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO2: Applicability and challenges of different datasets for machine learning">LO2</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO3: Applying and critically appraising machine learning techniques where technical risk and uncertainty are involved">LO3</a>
         </div>
         <div class="topic-box">
             <p class="topic-label">Project Brief</p>
-            <p class="placeholder">The project brief, the dataset and the problem being solved.</p>
+            <p>The summative individual assessment (40% of the module), <em>Comparative Intelligence and Ethics in Machine Learning Systems</em>, asked for a 20-minute recorded presentation with slides, a transcript and a Jupyter notebook comparing one classical and one deep learning model on the same dataset, including robust validation, at least one explainability method, a subgroup bias analysis, ethics and a deployment discussion. I chose Track A (computer vision) and the CIFAR-10 dataset (Krizhevsky, 2009): 60,000 colour images of 32&times;32 pixels in ten balanced classes, split identically for both models into 45,000 training, 5,000 validation and 10,000 test images.</p>
         </div>
 
         <div class="analysis-section">
             <h4>Approach</h4>
-            <p class="placeholder">How I approached the problem, from data preparation to model selection.</p>
+            <p><strong>Classical model.</strong> Each image was described by 1,812 hand-crafted features: histograms of oriented gradients for shape (Dalal and Triggs, 2005) and colour histograms. After scaling and principal component analysis, a support vector machine with an RBF kernel (Cortes and Vapnik, 1995) was tuned by grid search and evaluated with stratified five-fold cross-validation (Kohavi, 1995).</p>
+            <p><strong>Deep learning model.</strong> A three-block VGG-style convolutional neural network (Simonyan and Zisserman, 2015) with batch normalisation (Ioffe and Szegedy, 2015), dropout (Srivastava et al., 2014) and data augmentation, 3.4 million parameters, trained with Adam (Kingma and Ba, 2015) and early stopping on a Colab GPU. Ablation runs compared learning rates, dropout, batch sizes, optimisers and architectures, and a fine-tuned EfficientNetB0 (Tan and Le, 2019) served as a transfer-learning reference.</p>
         </div>
 
         <div class="analysis-section">
             <h4>Methods, Tools &amp; Technologies</h4>
-            <p class="placeholder">The machine learning techniques, libraries and tools used.</p>
+            <p>Python, scikit-learn (Pedregosa et al., 2011), scikit-image (van der Walt et al., 2014), TensorFlow/Keras (Abadi et al., 2016), LIME (Ribeiro, Singh and Guestrin, 2016) and Grad-CAM (Selvaraju et al., 2017).</p>
         </div>
     </div>
 </div>
@@ -93,24 +96,82 @@
 <div class="unit-section" id="results">
     <h2>Results &amp; Evaluation</h2>
     <div class="unit-content">
-
         <div class="analysis-section">
             <h4>Results</h4>
-            <p class="placeholder">The results and how the model was evaluated.</p>
+            <div class="table-wrapper">
+                <table class="portfolio-table">
+                    <thead><tr><th>Model (10,000 test images)</th><th>Accuracy</th><th>Macro F1</th><th>Training</th><th>Validation</th></tr></thead>
+                    <tbody>
+                        <tr><td>HOG features + RBF-SVM</td><td>64.4%</td><td>0.643</td><td>2.5 min, laptop CPU</td><td>Stratified 5-fold CV</td></tr>
+                        <tr><td>Custom CNN</td><td>87.7%</td><td>0.875</td><td>15.3 min, cloud GPU</td><td>Hold-out set and early stopping</td></tr>
+                        <tr><td>EfficientNetB0 (reference)</td><td>56.7%</td><td>0.560</td><td>20 epochs, cloud GPU</td><td>Hold-out set</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>The CNN won on every class by about 23 points, with the largest gains on the look-alike animals (cat +0.31, bird +0.31, dog +0.29 in F1). Cross-validation exposed what training scores hid: the SVM scored 99.7% on its training folds but 63.0% on its validation folds, a severe overfit, with 85% of the training images becoming support vectors.</p>
+        </div>
+
+        <div class="figure-grid">
+            <figure class="evidence-figure">
+                <a href="evidence/individual-project-per-class-f1.png" target="_blank" rel="noopener"><img src="evidence/individual-project-per-class-f1.png" alt="Per-class F1 scores for the SVM and the CNN" loading="lazy" /></a>
+                <figcaption>Per-class F1: the CNN wins on every class, most of all on cats, birds and dogs.</figcaption>
+            </figure>
+        </div>
+
+        <div class="analysis-section">
+            <h4>Explainability</h4>
+            <p>Permutation importance showed the SVM is almost purely a shape model: shuffling its gradient features dropped accuracy by 54.7 points, its colour features by only 1.8. LIME revealed a shortcut: the SVM called a bird an airplane because of the smooth, pale, sky-like background. Grad-CAM showed the CNN focusing on the object, and its attention spreading towards the border when it was wrong (47% of evidence in the border for errors against 37% for correct predictions), which I proposed as a flag for human review.</p>
+        </div>
+
+        <div class="figure-grid figure-grid--stacked">
+            <figure class="evidence-figure">
+                <a href="evidence/individual-project-xai-svm-vs-cnn.png" target="_blank" rel="noopener"><img src="evidence/individual-project-xai-svm-vs-cnn.png" alt="LIME and Grad-CAM explanations for six test images, SVM and CNN" loading="lazy" /></a>
+                <figcaption>The same six images explained by LIME for the SVM, LIME for the CNN and Grad-CAM for the CNN.</figcaption>
+            </figure>
+        </div>
+
+        <div class="analysis-section">
+            <h4>Bias and Robustness</h4>
+            <p>Splitting the test set by lighting, contrast and colourfulness, both models were less accurate on dark images, although part of the gap came from which classes appear in dark images. A controlled experiment then changed only the brightness: at a quarter of normal brightness the CNN fell from 88% to 62% while the SVM lost only about 3 points, because its gradient features are normalised. The more accurate model is also the more fragile one in very low light.</p>
+        </div>
+
+        <div class="figure-grid">
+            <figure class="evidence-figure">
+                <a href="evidence/individual-project-lighting-experiment.png" target="_blank" rel="noopener"><img src="evidence/individual-project-lighting-experiment.png" alt="Accuracy of the SVM and CNN as image brightness changes" loading="lazy" /></a>
+                <figcaption>Controlled brightness test: the CNN collapses in very low light while the SVM barely changes.</figcaption>
+            </figure>
+            <figure class="evidence-figure">
+                <a href="evidence/individual-project-subgroup-accuracy.png" target="_blank" rel="noopener"><img src="evidence/individual-project-subgroup-accuracy.png" alt="Accuracy by lighting, contrast and colourfulness subgroup with confidence intervals" loading="lazy" /></a>
+                <figcaption>Accuracy by subgroup, with 95% confidence intervals.</figcaption>
+            </figure>
         </div>
 
         <div class="analysis-section">
             <h4>What the Results Show</h4>
-            <p class="placeholder">What the results mean and the limitations of the approach.</p>
+            <p>I framed the ethics around a realistic use: a roadside camera that tells animals from vehicles for wildlife-crossing warnings. There, a missed deer is a safety risk while a false alarm only causes alert fatigue, so recall on animal classes matters most, and the low-light weakness means the system would fail most at dusk and night, when it is needed most. CIFAR-10 itself comes from the web-scraped 80 Million Tiny Images collection (Torralba, Fergus and Freeman, 2008), which was withdrawn after an audit of its contents (Birhane and Prabhu, 2021), and a real camera would capture faces and number plates, which are personal data under the GDPR (European Union, 2016). My recommendation was to deploy the CNN only with safeguards: low-light retraining, high-recall thresholds for animals, human review of low-confidence predictions, and monitoring by subgroup.</p>
+            <div class="highlight-box">
+                <p>&ldquo;Headline accuracy is not enough.&rdquo;</p>
+            </div>
+            <p class="skills-note">Limitations I reported: the CNN was validated on a hold-out set rather than cross-validation because of its training cost, the ablation variants were compared on test rather than validation accuracy, and LIME was applied to only six images.</p>
         </div>
 
         <div class="outcomes-section">
             <h4>Skills Demonstrated</h4>
-            <p class="placeholder">The technical and professional skills this project demonstrates.</p>
+            <ul class="styled-list">
+                <li>Designing a fair comparison of classical and deep learning models on identical data splits</li>
+                <li>Robust validation: grid search, stratified cross-validation, early stopping and confidence intervals</li>
+                <li>Explainable AI with permutation importance, LIME and Grad-CAM</li>
+                <li>Subgroup bias analysis, including a controlled experiment to separate cause from confounding</li>
+                <li>Ethical analysis grounded in a use case, and a deployment design with monitoring and retraining</li>
+                <li>Communicating technical results to an audience in a recorded presentation</li>
+            </ul>
         </div>
 
         <div class="evidence-links">
-            <p class="placeholder">Evidence: report, code, presentation and screenshots.</p>
+            <a href="evidence/individual-project-notebook.html" class="evidence-btn" target="_blank" rel="noopener">Project Notebook</a>
+            <a href="evidence/individual-project-svm-permutation-importance.png" class="evidence-btn" target="_blank" rel="noopener">SVM Feature Importance</a>
+            <a href="evidence/individual-project-svm-cv-folds.png" class="evidence-btn" target="_blank" rel="noopener">SVM Cross-validation Folds</a>
+            <a href="evidence/individual-project-assessment.png" class="evidence-btn" target="_blank" rel="noopener">Assessment Submission</a>
         </div>
     </div>
 </div>
@@ -118,25 +179,29 @@
 <div class="unit-section" id="proposal-evaluation">
     <h2><span class="unit-weeks">Unit 6 &rarr; Unit 11</span>Final Project vs. Initial Proposal</h2>
     <div class="unit-content">
-
         <div class="analysis-section">
             <h4>What Was Proposed</h4>
-            <p class="placeholder">The aims, dataset and methods set out in the Unit 6 proposal.</p>
+            <p>The Unit 6 team project (Group 5) was a classical machine learning analysis of New York Airbnb listings: regression to predict price and k-means to segment supply. The tutor praised its clear method and model comparison, but found that it focused heavily on technical evaluation, gave limited rationale for the techniques chosen, described its segments rather than validating them, and lacked critical discussion of model limitations.</p>
         </div>
 
         <div class="analysis-section">
             <h4>What Was Delivered</h4>
-            <p class="placeholder">What the final Unit 11 project actually did and achieved.</p>
+            <p>The Unit 11 project compared a classical and a deep learning model on CIFAR-10, adding cross-validation, explainability, a subgroup bias analysis, an ethical analysis of a specific use case and a deployment design. An early version of my notebook contained only the deep learning models; the classical model, explainability, bias analysis, ethics and deployment sections were added as the project developed.</p>
         </div>
 
         <div class="analysis-section">
             <h4>What Changed and Why</h4>
-            <p class="placeholder">The differences between the proposal and the final project, and the reasons for them.</p>
+            <ul>
+                <li><strong>Justification of choices:</strong> each decision was supported, with six reasons for the dataset, a benchmark for the classical model and ablation runs for the CNN design, answering the tutor&rsquo;s point about limited rationale.</li>
+                <li><strong>Validation over description:</strong> where the Airbnb segments were described by their averages, the Unit 11 results were tested with cross-validation, confidence intervals and significance tests across subgroups.</li>
+                <li><strong>Critical discussion of limitations:</strong> the project reported its own weaknesses, including the hold-out validation, test-set model selection and the small LIME sample.</li>
+                <li><strong>Broader recommendation:</strong> instead of a single pricing tool, the recommendation set out conditions for deployment, monitoring and retraining.</li>
+            </ul>
         </div>
 
         <div class="analysis-section">
             <h4>Lessons Learned</h4>
-            <p class="placeholder">What this comparison taught me about planning and delivering a machine learning project.</p>
+            <p>Comparing the two projects showed me that technical accuracy is only part of a good machine learning project. The Unit 6 feedback taught me to justify each choice, validate rather than describe, and be open about limitations, and the Unit 11 project is where I applied those lessons.</p>
         </div>
     </div>
 </div>
