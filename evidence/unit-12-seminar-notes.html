@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Unit 12 Seminar – Future of Machine Learning - ML E-Portfolio</title>
+<style>
+	body { background: #f4f5fb; color: #1f2333; font-family: "Source Sans Pro", Calibri, Arial, sans-serif; line-height: 1.7; margin: 0; }
+	main { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.08); margin: 2em auto; max-width: 52em; padding: 2.5em 3em; border-radius: 10px; }
+	h1 { color: #3f4f96; margin-bottom: 0.2em; }
+	.subtitle { color: #5f6476; margin-top: 0; }
+	h2 { border-left: 4px solid #4d5fae; color: #1f2333; font-size: 1.2em; margin-top: 2em; padding-left: 12px; }
+	a { color: #4d5fae; }
+	.back { display: inline-block; margin-bottom: 1em; }
+	@media (max-width: 600px) { main { margin: 0; padding: 1.5em 1.2em; border-radius: 0; } }
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="../artefacts.html#unit-12">&larr; Back to Unit 12</a>
+<h1>Unit 12 Seminar – Future of Machine Learning</h1>
+<p class="subtitle">Seminar notes – Bashair Alhosani</p>
+<p>Seminar brief: discuss how AI-driven automation is reshaping industries through four topics – self-supervised learning, neural architecture search, Edge AI, and the future of AI ethics, scalability and sustainability.</p>
+<p>Context: Industry 4.0 has filled factories, vehicles and cities with sensors and connected machines, so most new data is machine-generated and unlabelled. The three techniques in this seminar are responses to that: SSL learns from unlabelled data, NAS automates model design, and Edge AI moves models to where the data is produced. Industry 5.0 adds a further test – whether these technologies serve people and remain resilient and sustainable, not only efficient (Breque, De Nul and Petridis, 2021; Metcalf, 2024). I have used that test for each topic below.</p>
+<h2>1. Self-supervised learning (SSL): less reliance on labelled data</h2>
+<p>What it is: the model creates its own training task from unlabelled data, such as predicting a hidden word in a sentence (BERT; Devlin et al., 2019) or recognising that two altered versions of the same photo show the same thing (SimCLR; Chen et al., 2020). The representation it learns is then fine-tuned with a small labelled set.</p>
+<p>Evidence: a simple linear classifier trained on SimCLR&#x27;s self-supervised features reached 76.5% top-1 accuracy on ImageNet, matching a fully supervised ResNet-50, and with only 1% of the labels it reached 85.8% top-5 accuracy (Chen et al., 2020).</p>
+<p>Why it matters: labelling is slow and expensive, especially when experts are needed, as with medical images or financial documents.</p>
+<p>Discussion points:</p>
+<ul>
+<li>Pre-training needs very large datasets and computing power (see topic 4).</li>
+<li>Bias in unlabelled data is learned too, and is harder to spot because nobody inspected the data.</li>
+<li>Link to my work: my Unit 11 CNN was trained from scratch on 45,000 labelled CIFAR-10 images, with 5,000 held out for validation. The EfficientNetB0 I fine-tuned reused features learned from labelled ImageNet data. SSL would remove the need for labels in the pre-training step itself, so far fewer labelled images would be needed.</li>
+</ul>
+<h2>2. Neural architecture search (NAS)</h2>
+<p>What it is: automating the design of the network. Elsken, Metzen and Hutter (2019) describe three parts: the search space (which architectures are allowed), the search strategy (how they are explored, for example by reinforcement learning or evolution) and the performance estimation strategy (how each candidate is judged cheaply).</p>
+<p>Advantages:</p>
+<ul>
+<li>Zoph and Le (2017) used a reinforcement-learning controller to design a CIFAR-10 network that rivalled the best human-designed architectures, with a 3.65% test error.</li>
+<li>NAS can search for models that meet a constraint, such as being small enough for a phone (see topic 3).</li>
+<li>It is already in everyday use: the baseline network of the EfficientNet family was found by NAS and then scaled up, giving better accuracy with far fewer parameters than earlier CNNs (Tan and Le, 2019).</li>
+</ul>
+<p>Challenges:</p>
+<ul>
+<li>Many candidate networks must be trained, at least partly, which multiplies the energy and carbon cost (topic 4).</li>
+<li>Results depend on the search space people define, so it is not fully automatic.</li>
+<li>Found architectures can be hard to reproduce, compare fairly and explain.</li>
+<li>Link to my work: in Unit 11 I designed my CNN by hand and tested variations of learning rate, dropout, batch size, optimiser and architecture one at a time. That was a small, manual version of what NAS automates – and even my ten-epoch runs showed how quickly the computing cost grows with every option added.</li>
+</ul>
+<h2>3. Edge AI</h2>
+<p>What it is: running the model on or near the device that collects the data – a car, camera, wearable or sensor – instead of sending everything to a cloud data centre. Shi et al. (2016) set out the benefits: lower latency, less network traffic and data kept closer to its source.</p>
+<p>Examples from the brief:</p>
+<ul>
+<li>Autonomous vehicles: a braking decision cannot wait for a round trip to the cloud.</li>
+<li>Medical devices: wearables that detect an irregular heartbeat can keep sensitive data on the device.</li>
+<li>Smart cities: traffic cameras can count vehicles locally and send only the counts, not the video.</li>
+</ul>
+<p>Challenges:</p>
+<ul>
+<li>Limited memory, power and processing, so models must be made smaller (pruning, quantisation, compact architectures), usually with some loss of accuracy.</li>
+<li>Updating, monitoring and securing thousands of devices in the field.</li>
+<li>Link to my work: CNN Explainer (Unit 10) runs a small CNN entirely in the browser, a simple example of a model on the user&#x27;s own device. My tests also showed that a small model can fail badly on unfamiliar images: it labelled a chest X-ray &quot;ladybug&quot; with 53% confidence. In my Unit 11 project I recommended an on-device model for a roadside wildlife camera, but only with per-condition monitoring, because my CNN lost 26 percentage points of accuracy in very low light. A device in the field meets exactly those conditions, with nobody watching it.</li>
+</ul>
+<h2>4. The future of AI ethics, scalability and sustainability</h2>
+<p>Ethics:</p>
+<ul>
+<li>Bias and accountability: facial recognition shows how unequal error rates can harm people (Wall, 2019).</li>
+<li>Over-confidence: the CNNs in Units 9 and 10 gave confident wrong answers. Systems need a way to say &quot;I don&#x27;t know&quot; and a human in the loop for high-stakes decisions.</li>
+<li>Regulation: the EU AI Act sets stricter obligations for high-risk uses, including medical devices and creditworthiness assessment (European Union, 2024). As I plan to work in business and finance, the second matters directly to me.</li>
+</ul>
+<p>Scalability:</p>
+<ul>
+<li>Larger models and datasets keep improving results, but they concentrate capability in the organisations that can afford the computing power. SSL and NAS both increase that demand.</li>
+</ul>
+<p>Sustainability:</p>
+<ul>
+<li>Strubell, Ganesh and McCallum (2019) estimated the financial and carbon cost of training modern NLP models and recommended reporting training time and computing resources, and prioritising efficient methods.</li>
+<li>Edge AI and smaller models can reduce energy use per decision, but billions of devices have their own footprint.</li>
+</ul>
+<p>Question I would put to the group: should products and research papers be required to report their energy use and carbon cost alongside accuracy?</p>
+<h2>My position</h2>
+<p>SSL makes models cheaper to label, NAS makes them quicker to design and Edge AI brings them closer to where data is produced. But each moves cost or risk somewhere else: to computing energy, to bias that is harder to see, or to devices that are harder to monitor. Judged against Industry 5.0, the question is not only whether these techniques are efficient but who carries those costs. As a professional I would weigh accuracy against them, and evaluate any model on data from the setting where it will actually be used.</p>
+<h2>References</h2>
+<p>Breque, M., De Nul, L. and Petridis, A. (2021) Industry 5.0: Towards a sustainable, human-centric and resilient European industry. Luxembourg: European Commission.</p>
+<p>Chen, T., Kornblith, S., Norouzi, M. and Hinton, G. (2020) &#x27;A simple framework for contrastive learning of visual representations&#x27;, Proceedings of the 37th International Conference on Machine Learning, PMLR 119, pp. 1597–1607. Available at: <a href="https://arxiv.org/abs/2002.05709">https://arxiv.org/abs/2002.05709</a> (Accessed: 18 October 2026).</p>
+<p>Devlin, J., Chang, M.-W., Lee, K. and Toutanova, K. (2019) &#x27;BERT: pre-training of deep bidirectional transformers for language understanding&#x27;, Proceedings of NAACL-HLT 2019. Minneapolis: Association for Computational Linguistics, pp. 4171–4186.</p>
+<p>Elsken, T., Metzen, J.H. and Hutter, F. (2019) &#x27;Neural architecture search: a survey&#x27;, Journal of Machine Learning Research, 20(55), pp. 1–21.</p>
+<p>European Union (2024) Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act). Official Journal of the European Union. Available at: <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng">https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng</a> (Accessed: 18 October 2026).</p>
+<p>Metcalf, G.S. (2024) &#x27;An introduction to Industry 5.0: history, foundations, and futures&#x27;, in Nousala, S., Metcalf, G. and Ing, D. (eds.) Industry 4.0 to Industry 5.0: Explorations in the Transition from a Techno-economic to a Socio-technical Future. Translational Systems Sciences, vol. 41. Singapore: Springer, pp. 1–29.</p>
+<p>Shi, W., Cao, J., Zhang, Q., Li, Y. and Xu, L. (2016) &#x27;Edge computing: vision and challenges&#x27;, IEEE Internet of Things Journal, 3(5), pp. 637–646. doi: 10.1109/JIOT.2016.2579198.</p>
+<p>Strubell, E., Ganesh, A. and McCallum, A. (2019) &#x27;Energy and policy considerations for deep learning in NLP&#x27;, Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics. Florence: Association for Computational Linguistics, pp. 3645–3650.</p>
+<p>Tan, M. and Le, Q.V. (2019) &#x27;EfficientNet: rethinking model scaling for convolutional neural networks&#x27;, Proceedings of the 36th International Conference on Machine Learning, PMLR 97, pp. 6105–6114.</p>
+<p>Wall, M. (2019) &#x27;Biased and wrong? Facial recognition tech in the dock&#x27;, BBC News, 8 July. Available at: <a href="https://www.bbc.co.uk/news/business-48842750">https://www.bbc.co.uk/news/business-48842750</a> (Accessed: 18 October 2026).</p>
+<p>Zoph, B. and Le, Q.V. (2017) &#x27;Neural architecture search with reinforcement learning&#x27;, 5th International Conference on Learning Representations (ICLR). Available at: <a href="https://arxiv.org/abs/1611.01578">https://arxiv.org/abs/1611.01578</a> (Accessed: 18 October 2026).</p>
+</main>
+</body>
+</html>

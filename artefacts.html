@@ -829,7 +829,9 @@
     <div class="unit-content">
         <div class="lo-row">
             <span class="lo-label">Learning outcomes</span>
-            <span class="placeholder-inline">To be mapped</span>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO1: Legal, social, ethical and professional issues faced by machine learning professionals">LO1</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO2: Applicability and challenges of different datasets for machine learning">LO2</a>
+            <a href="development.html#learning-outcomes" class="lo-tag" title="LO3: Applying and critically appraising machine learning techniques where technical risk and uncertainty are involved">LO3</a>
         </div>
         <div class="topic-box">
             <p class="topic-label">Unit Focus</p>
@@ -838,16 +840,45 @@
 
         <div class="analysis-section">
             <h4>Key Learning</h4>
-            <p class="placeholder">The main concepts from this unit, in my own words.</p>
+            <p>Industry 4.0 has filled factories, vehicles and cities with sensors, so most new data is machine-generated and unlabelled. The techniques in this unit respond to that: self-supervised learning creates its own training task from unlabelled data, reaching the accuracy of a fully supervised network on ImageNet (Chen et al., 2020); neural architecture search automates the design of the network itself (Elsken, Metzen and Hutter, 2019); and Edge AI runs models on the devices that collect the data, cutting latency and keeping data local (Shi et al., 2016). Industry 5.0 adds a further test: whether these technologies serve people and remain resilient and sustainable, not only efficient (Breque, De Nul and Petridis, 2021).</p>
         </div>
 
         <div class="analysis-section">
             <h4>Activities &amp; Contributions</h4>
-            <p class="placeholder">My contribution to the Unit 12 seminar on the future of machine learning.</p>
+            <h5>Seminar: the future of machine learning</h5>
+            <p>I prepared notes on the seminar&rsquo;s four topics and linked each to my own work in the module:</p>
+            <div class="table-wrapper">
+                <table class="portfolio-table">
+                    <thead><tr><th>Topic</th><th>What it changes</th><th>Where the cost or risk moves</th><th>Link to my work</th></tr></thead>
+                    <tbody>
+                        <tr><td>Self-supervised learning</td><td>Far fewer labelled examples needed</td><td>Very large pre-training compute; bias in unlabelled data is harder to see</td><td>My Unit 11 CNN needed 45,000 labelled images</td></tr>
+                        <tr><td>Neural architecture search</td><td>Network design automated</td><td>Many candidate networks trained, multiplying energy use</td><td>I tuned my CNN by hand, one variation at a time</td></tr>
+                        <tr><td>Edge AI</td><td>Models run on cars, cameras and wearables</td><td>Smaller, less accurate models on devices that are hard to monitor</td><td>My roadside-camera CNN lost 26 points in low light</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>For ethics, scalability and sustainability, I drew on the over-confident CNNs from Units 9 and 10, the EU AI Act&rsquo;s stricter rules for high-risk uses such as medical devices and creditworthiness assessment (European Union, 2024), and the carbon cost of training large models (Strubell, Ganesh and McCallum, 2019). The question I prepared for the group was whether products and research papers should report their energy use alongside accuracy.</p>
+            <div class="highlight-box">
+                <p>&ldquo;Each moves cost or risk somewhere else: to computing energy, to bias that is harder to see, or to devices that are harder to monitor.&rdquo;</p>
+            </div>
+            <p class="skills-note">The notes address LO1 through regulation and sustainability, LO2 through the shift to unlabelled, machine-generated data, and LO3 by weighing each technique&rsquo;s trade-offs against evidence from my own projects.</p>
+        </div>
+
+
+        <div class="reflection-box">
+            <h4>Reflection</h4>
+            <p><strong>What?</strong> I prepared notes for the final seminar on self-supervised learning, neural architecture search, Edge AI, and the ethics, scalability and sustainability of AI.</p>
+            <p><strong>So what?</strong> Preparing them made me connect these trends to my own work: my hand-tuned CNN was a small, manual version of what neural architecture search automates, and my roadside-camera recommendation was an Edge AI deployment that would meet low-light conditions with nobody watching. It also showed me that new techniques rarely remove cost or risk; they move it to energy use, hidden bias or unmonitored devices.</p>
+            <p><strong>Now what?</strong> When I assess new machine learning techniques in business and finance, I will ask where the cost and risk go and who carries them, alongside accuracy, and I will check them against the EU AI Act&rsquo;s requirements for high-risk systems.</p>
+        </div>
+
+        <div class="metadata-row">
+            <span class="meta-item"><strong>Skills applied:</strong> Research, critical thinking, ethical awareness, commercial awareness</span>
+            <span class="meta-item"><strong>Tools:</strong> Academic literature, module projects</span>
         </div>
 
         <div class="evidence-links">
-            <p class="placeholder">Evidence of my seminar contribution.</p>
+            <a href="evidence/unit-12-seminar-notes.html" class="evidence-btn" target="_blank" rel="noopener">Seminar Notes</a>
         </div>
     </div>
 </div>
